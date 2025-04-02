@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import InfoSection from "@/components/InfoSection";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
+import { Testimonials } from "@/components/Testimonials";
 
 const Index = () => {
   useEffect(() => {
@@ -17,6 +18,7 @@ const Index = () => {
       <main className="flex-grow pt-16">
         <Hero />
         <InfoSection />
+        <Testimonials />
       </main>
       <Footer />
     </div>

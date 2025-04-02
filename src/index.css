@@ -102,24 +102,27 @@
   }
 }
 
-/* Custom cursor styles */
+/* Custom cursor styles with improved appearance */
 .custom-cursor {
   position: fixed;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #2563eb;
+  background-color: rgba(37, 99, 235, 0.7);
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 9999;
-  transition: width 0.3s, height 0.3s;
-  box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.6);
+  mix-blend-mode: difference;
+  backdrop-filter: blur(1px);
 }
 
 .custom-cursor.hovering {
-  width: 30px;
-  height: 30px;
-  background-color: rgba(37, 99, 235, 0.7);
+  width: 35px;
+  height: 35px;
+  background-color: rgba(16, 185, 129, 0.7);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
 }
 
 /* Ensure page content doesn't go under the header */
@@ -149,4 +152,56 @@
 
 .tab-button[data-state="active"]::before {
   width: 100%;
+}
+
+/* Card animations */
+.card-hover-effect {
+  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+
+/* Page transition animations */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+/* Hero section enhancements */
+.hero-gradient-overlay {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Enhanced section spacing */
+.section-spacing {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+/* Typography enhancements */
+.heading-xl {
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+}
+
+.heading-lg {
+  @apply text-3xl md:text-4xl font-bold;
 }

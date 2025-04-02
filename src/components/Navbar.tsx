@@ -22,7 +22,7 @@ const Navbar = () => {
 
   // Custom cursor effect
   useEffect(() => {
-    const moveCursor = (e) => {
+    const moveCursor = (e: MouseEvent) => {
       setCursorPosition({ x: e.clientX, y: e.clientY });
     };
 
@@ -57,8 +57,9 @@ const Navbar = () => {
   useEffect(() => {
     const cursor = document.querySelector('.custom-cursor');
     if (cursor) {
-      cursor.style.left = `${cursorPosition.x}px`;
-      cursor.style.top = `${cursorPosition.y}px`;
+      const cursorEl = cursor as HTMLElement;
+      cursorEl.style.left = `${cursorPosition.x}px`;
+      cursorEl.style.top = `${cursorPosition.y}px`;
       
       if (isHovering) {
         cursor.classList.add('hovering');
