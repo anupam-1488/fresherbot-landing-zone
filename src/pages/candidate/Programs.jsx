@@ -45,7 +45,7 @@ const Programs = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-16 container mx-auto px-4 py-12">
+      <main className="flex-grow pt-24 container mx-auto px-4 py-12">
         <div className="mb-10">
           <h1 className="text-4xl font-bold mb-4">Our Programs</h1>
           <p className="text-lg text-gray-600 max-w-3xl">
@@ -56,7 +56,7 @@ const Programs = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {programs.map((program) => (
-            <Card key={program.id} className="hover:shadow-lg transition-shadow">
+            <Card key={program.id} className="hover:shadow-lg transition-shadow border border-gray-200">
               <CardHeader>
                 <div className="flex flex-col items-center md:items-start">
                   {program.icon}
@@ -68,7 +68,7 @@ const Programs = () => {
                 <p>{program.description}</p>
               </CardContent>
               <CardFooter>
-                <Button className="w-full bg-fresherbot-blue hover:bg-fresherbot-lightBlue">
+                <Button className="w-full bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-md transition-all">
                   Enroll Now
                 </Button>
               </CardFooter>
@@ -76,11 +76,11 @@ const Programs = () => {
           ))}
         </div>
         
-        <div className="mt-12 bg-gray-50 p-8 rounded-lg">
+        <div className="mt-12 bg-gray-50 p-8 rounded-lg shadow-sm">
           <div className="text-center">
             <h2 className="text-2xl font-bold mb-4">Not sure which program is right for you?</h2>
             <p className="mb-6">Our career counselors can help you choose the perfect program based on your goals.</p>
-            <Button className="bg-fresherbot-green hover:bg-fresherbot-green/90">Schedule a Consultation</Button>
+            <Button className="bg-fresherbot-green hover:bg-fresherbot-green/90 shadow-md transition-all">Schedule a Consultation</Button>
           </div>
         </div>
       </main>

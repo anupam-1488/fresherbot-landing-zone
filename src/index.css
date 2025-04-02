@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,5 +98,55 @@
 
   body {
     @apply bg-background text-foreground;
+    cursor: none;
   }
+}
+
+/* Custom cursor styles */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #2563eb;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.3s, height 0.3s;
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+}
+
+.custom-cursor.hovering {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(37, 99, 235, 0.7);
+}
+
+/* Ensure page content doesn't go under the header */
+.pt-16 {
+  padding-top: 5rem; /* Increase padding to prevent content from going under header */
+}
+
+/* Enhanced button styles */
+.tab-button {
+  @apply px-4 py-2 rounded-md transition-all duration-300 font-medium border-2 relative overflow-hidden;
+}
+
+.tab-button::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.tab-button:hover::before {
+  width: 100%;
+}
+
+.tab-button[data-state="active"]::before {
+  width: 100%;
 }

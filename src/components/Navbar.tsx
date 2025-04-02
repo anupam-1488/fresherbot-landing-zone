@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, BookOpen, Code, Briefcase, Building, GraduationCap } from "lucide-react";
 import {
   NavigationMenu,
@@ -17,6 +17,56 @@ import { cn } from "@/lib/utils";
 const Navbar = () => {
   const isMobile = useIsMobile();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Custom cursor effect
+  useEffect(() => {
+    const moveCursor = (e) => {
+      setCursorPosition({ x: e.clientX, y: e.clientY });
+    };
+
+    const handleMouseOver = () => setIsHovering(true);
+    const handleMouseOut = () => setIsHovering(false);
+    
+    document.addEventListener('mousemove', moveCursor);
+    
+    const interactiveElements = document.querySelectorAll('a, button, [role="button"]');
+    interactiveElements.forEach(element => {
+      element.addEventListener('mouseover', handleMouseOver);
+      element.addEventListener('mouseout', handleMouseOut);
+    });
+    
+    // Create cursor element
+    const cursor = document.createElement('div');
+    cursor.classList.add('custom-cursor');
+    document.body.appendChild(cursor);
+    
+    return () => {
+      document.removeEventListener('mousemove', moveCursor);
+      interactiveElements.forEach(element => {
+        element.removeEventListener('mouseover', handleMouseOver);
+        element.removeEventListener('mouseout', handleMouseOut);
+      });
+      
+      document.body.removeChild(cursor);
+    };
+  }, []);
+
+  // Update cursor position and state
+  useEffect(() => {
+    const cursor = document.querySelector('.custom-cursor');
+    if (cursor) {
+      cursor.style.left = `${cursorPosition.x}px`;
+      cursor.style.top = `${cursorPosition.y}px`;
+      
+      if (isHovering) {
+        cursor.classList.add('hovering');
+      } else {
+        cursor.classList.remove('hovering');
+      }
+    }
+  }, [cursorPosition, isHovering]);
 
   const ListItem = ({ className, title, href, children }) => {
     return (
@@ -40,7 +90,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full bg-white shadow-sm py-4 fixed top-0 left-0 right-0 z-50">
+    <nav className="w-full bg-white shadow-sm py-6 fixed top-0 left-0 right-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
@@ -165,10 +215,10 @@ const Navbar = () => {
             </NavigationMenu>
             
             <div className="flex space-x-2">
-              <Button variant="outline" asChild>
+              <Button variant="outline" className="border-2 border-fresherbot-blue hover:bg-fresherbot-blue/10" asChild>
                 <Link to="/login">Login</Link>
               </Button>
-              <Button className="bg-fresherbot-blue hover:bg-fresherbot-lightBlue" asChild>
+              <Button className="bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-md" asChild>
                 <Link to="/register">Register</Link>
               </Button>
             </div>

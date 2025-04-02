@@ -15,10 +15,10 @@ const Blog = () => {
   // Show a loading spinner while redirecting
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-white to-gray-100">
-      <div className="text-center">
-        <Loader2 className="h-12 w-12 animate-spin text-fresherbot-blue mx-auto mb-4" />
-        <h1 className="text-2xl font-bold mb-2">Redirecting to our blog</h1>
-        <p className="text-gray-600">Please wait a moment...</p>
+      <div className="text-center bg-white p-10 rounded-xl shadow-md">
+        <Loader2 className="h-16 w-16 animate-spin text-fresherbot-blue mx-auto mb-6" />
+        <h1 className="text-3xl font-bold mb-3">Redirecting to our blog</h1>
+        <p className="text-gray-600 text-lg">Please wait a moment...</p>
       </div>
     </div>
   );

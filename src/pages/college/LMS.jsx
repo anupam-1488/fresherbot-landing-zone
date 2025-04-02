@@ -24,7 +24,7 @@ const LMS = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-16 container mx-auto px-4 py-12">
+      <main className="flex-grow pt-24 container mx-auto px-4 py-12">
         <div className="mb-12">
           <h1 className="text-4xl font-bold mb-4">Learning Management System</h1>
           <p className="text-lg text-gray-600 max-w-3xl">
@@ -47,16 +47,16 @@ const LMS = () => {
             </div>
           </div>
           
-          <div className="bg-gray-50 p-8 rounded-lg">
+          <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
             <h2 className="text-2xl font-bold mb-4">Ready to Get Started?</h2>
             <p className="mb-6">
               Explore how our LMS can transform your institution's teaching and learning experience.
             </p>
             <div className="flex flex-col space-y-4">
-              <Button size="lg" className="bg-fresherbot-blue hover:bg-fresherbot-lightBlue">
+              <Button size="lg" className="bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-md transition-all">
                 Book a Free Demo
               </Button>
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" className="border-2 border-fresherbot-blue hover:bg-fresherbot-blue/10 transition-all">
                 Company-Specific Assessments
               </Button>
             </div>
@@ -64,15 +64,30 @@ const LMS = () => {
         </div>
         
         <Tabs defaultValue="overview" className="w-full mb-16">
-          <TabsList className="grid w-full grid-cols-3 mb-8">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="company-assessments">Company-Specific Assessments</TabsTrigger>
-            <TabsTrigger value="demo">Book a Demo</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-3 mb-8 bg-gray-100 p-1 rounded-lg">
+            <TabsTrigger 
+              value="overview" 
+              className="tab-button data-[state=active]:bg-white data-[state=active]:shadow-sm"
+            >
+              Overview
+            </TabsTrigger>
+            <TabsTrigger 
+              value="company-assessments" 
+              className="tab-button data-[state=active]:bg-white data-[state=active]:shadow-sm"
+            >
+              Company-Specific Assessments
+            </TabsTrigger>
+            <TabsTrigger 
+              value="demo" 
+              className="tab-button data-[state=active]:bg-white data-[state=active]:shadow-sm"
+            >
+              Book a Demo
+            </TabsTrigger>
           </TabsList>
           
           <TabsContent value="overview">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
+              <div className="bg-white p-6 rounded-lg shadow-sm">
                 <h3 className="text-xl font-bold mb-4">Complete Educational Platform</h3>
                 <p className="text-gray-600 mb-4">
                   Our LMS provides a comprehensive solution for educational institutions to manage all aspects
@@ -83,7 +98,7 @@ const LMS = () => {
                   whether you're a small college or a large university with multiple departments.
                 </p>
               </div>
-              <div>
+              <div className="bg-white p-6 rounded-lg shadow-sm">
                 <h3 className="text-xl font-bold mb-4">Enhanced Student Engagement</h3>
                 <p className="text-gray-600 mb-4">
                   With interactive features like discussion forums, live sessions, and multimedia content support,
@@ -106,7 +121,7 @@ const LMS = () => {
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <Card>
+                <Card className="shadow-sm hover:shadow-md transition-all">
                   <CardHeader>
                     <CardTitle>Technical Assessments</CardTitle>
                     <CardDescription>
@@ -120,11 +135,11 @@ const LMS = () => {
                     </p>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full">Learn More</Button>
+                    <Button className="w-full bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-sm">Learn More</Button>
                   </CardFooter>
                 </Card>
                 
-                <Card>
+                <Card className="shadow-sm hover:shadow-md transition-all">
                   <CardHeader>
                     <CardTitle>Aptitude Assessments</CardTitle>
                     <CardDescription>
@@ -138,11 +153,11 @@ const LMS = () => {
                     </p>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full">Learn More</Button>
+                    <Button className="w-full bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-sm">Learn More</Button>
                   </CardFooter>
                 </Card>
                 
-                <Card>
+                <Card className="shadow-sm hover:shadow-md transition-all">
                   <CardHeader>
                     <CardTitle>Domain Assessments</CardTitle>
                     <CardDescription>
@@ -156,7 +171,7 @@ const LMS = () => {
                     </p>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full">Learn More</Button>
+                    <Button className="w-full bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-sm">Learn More</Button>
                   </CardFooter>
                 </Card>
               </div>
@@ -164,7 +179,7 @@ const LMS = () => {
           </TabsContent>
           
           <TabsContent value="demo">
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-sm">
               <h3 className="text-xl font-bold mb-4">Book a Free Demo</h3>
               <p className="text-gray-600 mb-6">
                 Experience the power of our LMS firsthand with a personalized demonstration tailored to your institution's needs.
@@ -177,7 +192,7 @@ const LMS = () => {
                     <input
                       type="text"
                       id="name"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-fresherbot-blue focus:ring focus:ring-fresherbot-blue focus:ring-opacity-50"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-fresherbot-blue focus:ring focus:ring-fresherbot-blue focus:ring-opacity-50 p-2 border"
                       placeholder="Your Name"
                     />
                   </div>
@@ -186,7 +201,7 @@ const LMS = () => {
                     <input
                       type="email"
                       id="email"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-fresherbot-blue focus:ring focus:ring-fresherbot-blue focus:ring-opacity-50"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-fresherbot-blue focus:ring focus:ring-fresherbot-blue focus:ring-opacity-50 p-2 border"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -197,7 +212,7 @@ const LMS = () => {
                   <input
                     type="text"
                     id="institution"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-fresherbot-blue focus:ring focus:ring-fresherbot-blue focus:ring-opacity-50"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-fresherbot-blue focus:ring focus:ring-fresherbot-blue focus:ring-opacity-50 p-2 border"
                     placeholder="Your College/University Name"
                   />
                 </div>
@@ -207,7 +222,7 @@ const LMS = () => {
                   <input
                     type="tel"
                     id="phone"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-fresherbot-blue focus:ring focus:ring-fresherbot-blue focus:ring-opacity-50"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-fresherbot-blue focus:ring focus:ring-fresherbot-blue focus:ring-opacity-50 p-2 border"
                     placeholder="Your Phone Number"
                   />
                 </div>
@@ -217,13 +232,13 @@ const LMS = () => {
                   <textarea
                     id="message"
                     rows="4"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-fresherbot-blue focus:ring focus:ring-fresherbot-blue focus:ring-opacity-50"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-fresherbot-blue focus:ring focus:ring-fresherbot-blue focus:ring-opacity-50 p-2 border"
                     placeholder="Tell us about your specific requirements..."
                   ></textarea>
                 </div>
                 
                 <div>
-                  <Button type="submit" className="w-full bg-fresherbot-blue hover:bg-fresherbot-lightBlue">
+                  <Button type="submit" className="w-full bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-md">
                     Request Demo
                   </Button>
                 </div>
@@ -235,7 +250,7 @@ const LMS = () => {
         <div className="mb-16">
           <h2 className="text-2xl font-bold mb-6">Success Stories</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card>
+            <Card className="shadow-sm hover:shadow-md transition-all">
               <CardHeader>
                 <CardTitle>VIT University</CardTitle>
               </CardHeader>
@@ -250,7 +265,7 @@ const LMS = () => {
               </CardFooter>
             </Card>
             
-            <Card>
+            <Card className="shadow-sm hover:shadow-md transition-all">
               <CardHeader>
                 <CardTitle>SRM Institute of Technology</CardTitle>
               </CardHeader>
@@ -265,7 +280,7 @@ const LMS = () => {
               </CardFooter>
             </Card>
             
-            <Card>
+            <Card className="shadow-sm hover:shadow-md transition-all">
               <CardHeader>
                 <CardTitle>BITS Pilani</CardTitle>
               </CardHeader>
