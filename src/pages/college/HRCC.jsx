@@ -100,7 +100,7 @@ const HRCC = () => {
 
         <div className="container mx-auto px-4 py-12">
           <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-4">About HRCC</h2>
+            <h2 className="text-3xl font-bold mb-4"style={{color: 'rgb(3 105 161)'}}>About HRCC</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div>
                 <p className="text-lg mb-4">
@@ -155,7 +155,7 @@ const HRCC = () => {
           </div>
 
           <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-6">Our Services</h2>
+            <h2 className="text-3xl font-bold mb-6" style={{color: 'rgb(3 105 161)'}}>Our Services</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {hrccServices.map((service, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -169,7 +169,7 @@ const HRCC = () => {
           </div>
 
           <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-6">How We Work</h2>
+            <h2 className="text-3xl font-bold mb-6" style={{color: 'rgb(3 105 161)'}}>How We Work</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div className="order-2 lg:order-1">
                 <ol className="space-y-6">
@@ -234,7 +234,7 @@ const HRCC = () => {
           </div>
 
           <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-6">Success Stories</h2>
+            <h2 className="text-3xl font-bold mb-6"style={{color: 'rgb(3 105 161)'}}  >Success Stories</h2>
             <Carousel className="w-full">
               <CarouselContent>
                 <CarouselItem className="md:basis-1/2 lg:basis-1/3">
@@ -291,7 +291,7 @@ const HRCC = () => {
               Partner with FresherBot's HRCC to provide world-class career services to your students.
             </p>
             <div className="flex flex-col md:flex-row justify-center gap-4">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-fresherbot-blue">
+              <Button size="lg" variant="outline" className="bg-white text-fresherbot-blue hover:bg-gray-100">
                 Schedule a Consultation
               </Button>
               <Button size="lg" className="bg-white text-fresherbot-blue hover:bg-gray-100">

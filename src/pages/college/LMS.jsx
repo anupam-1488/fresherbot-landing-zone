@@ -24,9 +24,9 @@ const LMS = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-24 container mx-auto px-4 py-12">
+      <main className="flex-grow pt-24 container mx-auto px-4 py-12 mt-12">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold mb-4">Learning Management System</h1>
+          <h1 className="text-4xl font-bold mb-4"style={{color: 'rgb(3 105 161)'}}>Learning Management System</h1>
           <p className="text-lg text-gray-600 max-w-3xl">
             Transform your educational institution with our comprehensive Learning Management System.
             Designed specifically for colleges and universities, our LMS streamlines course delivery,

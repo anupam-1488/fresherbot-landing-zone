@@ -70,9 +70,9 @@ const Hackathon = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-16 container mx-auto px-4 py-12">
+      <main className="flex-grow pt-16 container mx-auto px-4 py-12 mt-12">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold mb-4">Hackathons for Recruitment</h1>
+          <h1 className="text-4xl font-bold mb-4"style={{color: 'rgb(3 105 161)'}} >Hackathons for Recruitment</h1>
           <p className="text-lg text-gray-600 max-w-3xl">
             Host or participate in hackathons designed to identify exceptional tech talent.
             Our platform helps companies discover highly skilled developers while solving real business challenges.

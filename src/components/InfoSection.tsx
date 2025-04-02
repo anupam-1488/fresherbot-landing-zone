@@ -48,7 +48,7 @@ const InfoSection = () => {
 
   return (
     <>
-      <section className="py-16 bg-gray-50">
+      <section className=" bg-gray-50 z-11">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <span className="bg-fresherbot-blue/10 text-fresherbot-blue font-medium py-1 px-3 rounded-full text-sm">Our Services</span>

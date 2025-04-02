@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 
 interface TypedTextProps {
@@ -18,11 +17,26 @@ const TypedText = ({ text, typingSpeed = 100, className = "" }: TypedTextProps) 
     if (isTyping) {
       timer = setInterval(() => {
         if (currentIndex < text.length) {
-          setDisplayText((prev) => prev + text[currentIndex]);
+          const char = text[currentIndex];
+          const charCode = text.charCodeAt(currentIndex);
+
+          setDisplayText((prev) => {
+            const newText = prev + char;
+            console.log(
+              "Adding character:",
+              char,
+              "Character code:",
+              charCode,
+              "Current text:",
+              newText
+            );
+            return newText;
+          });
           currentIndex++;
         } else {
           setIsTyping(false);
           clearInterval(timer);
+          console.log("Typing complete. Final text:", displayText);
         }
       }, typingSpeed);
     }
@@ -32,9 +46,9 @@ const TypedText = ({ text, typingSpeed = 100, className = "" }: TypedTextProps) 
 
   return (
     <div className={`relative inline-block ${className}`}>
-      <span>{displayText}</span>
+      <span style={{ whiteSpace: "pre" }}>{displayText}</span> {/* Added whiteSpace: "pre" */}
       {isTyping && (
-        <span className="absolute right-[-4px] h-full w-[2px] bg-current animate-cursor-blink"></span>
+        <span className="inline-block w-[2px] bg-current animate-cursor-blink"></span>
       )}
     </div>
   );

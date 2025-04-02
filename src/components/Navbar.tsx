@@ -13,6 +13,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import logo from "/Images/fresherbot_logo_dark.png";
 
 const Navbar = () => {
   const isMobile = useIsMobile();
@@ -95,8 +96,9 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-fresherbot-blue">FresherBot</span>
-          </Link>
+            {/* <span className="text-2xl font-bold text-fresherbot-blue"></span> */}
+            <img src={logo} alt="Fresherbot Logo" />
+            </Link>
         </div>
         
         {isMobile ? (

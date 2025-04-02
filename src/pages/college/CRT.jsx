@@ -63,9 +63,9 @@ const CRT = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-16 container mx-auto px-4 py-12">
+      <main className="flex-grow pt-16 container mx-auto px-4 py-12 mt-12">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold mb-4">Campus Recruitment Training (CRT)</h1>
+          <h1 className="text-4xl font-bold mb-4" style={{color: 'rgb(3 105 161)'}}>Campus Recruitment Training (CRT)</h1>
           <p className="text-lg text-gray-600 max-w-3xl">
             Prepare your students for successful campus placements with our comprehensive
             Campus Recruitment Training program. Our industry-aligned training modules help
@@ -111,12 +111,12 @@ const CRT = () => {
           <h2 className="text-2xl font-bold mb-6">Program Timeline</h2>
           <div className="relative border-l-2 border-fresherbot-blue pl-8 space-y-12">
             <div>
-              <div className="absolute -left-3 mt-1.5">
+              <div className="absolute -left-3 mt-1.5"> 
                 <div className="h-6 w-6 rounded-full border-2 border-fresherbot-blue bg-white flex items-center justify-center">
                   <div className="h-2 w-2 rounded-full bg-fresherbot-blue"></div>
                 </div>
               </div>
-              <div>
+              <div className="mx-12">
                 <h3 className="text-xl font-bold">Phase 1: Foundation Building</h3>
                 <p className="text-gray-600 mt-1">4 weeks</p>
                 <p className="mt-2">
@@ -187,7 +187,7 @@ const CRT = () => {
               <Button size="lg" className="bg-white text-fresherbot-blue hover:bg-gray-100">
                 Schedule a Meeting
               </Button>
-              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-fresherbot-blue">
+              <Button size="lg" variant="outline" className="text-fresherbot-blue border-white hover:bg-white hover:text-fresherbot-blue">
                 Request Brochure
               </Button>
             </div>
