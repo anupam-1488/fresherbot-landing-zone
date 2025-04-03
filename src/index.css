@@ -98,31 +98,7 @@
 
   body {
     @apply bg-background text-foreground;
-    cursor: none;
   }
-}
-
-/* Custom cursor styles with improved appearance */
-.custom-cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: rgba(37, 99, 235, 0.7);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 9999;
-  transition: width 0.3s, height 0.3s, background-color 0.3s;
-  box-shadow: 0 0 15px rgba(37, 99, 235, 0.6);
-  mix-blend-mode: difference;
-  backdrop-filter: blur(1px);
-}
-
-.custom-cursor.hovering {
-  width: 35px;
-  height: 35px;
-  background-color: rgba(16, 185, 129, 0.7);
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
 }
 
 /* Ensure page content doesn't go under the header */

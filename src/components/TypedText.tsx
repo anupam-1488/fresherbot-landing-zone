@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 
 interface TypedTextProps {
@@ -46,7 +47,7 @@ const TypedText = ({ text, typingSpeed = 100, className = "" }: TypedTextProps) 
 
   return (
     <div className={`relative inline-block ${className}`}>
-      <span style={{ whiteSpace: "pre" }}>{displayText}</span> {/* Added whiteSpace: "pre" */}
+      <span style={{ whiteSpace: "pre" }}>{displayText}</span>
       {isTyping && (
         <span className="inline-block w-[2px] bg-current animate-cursor-blink"></span>
       )}
