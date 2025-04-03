@@ -1,24 +1,30 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Users, BookOpen, Video, BarChart4 } from "lucide-react";
 
 const LMS = () => {
   const lmsFeatures = [
-    "Customizable course content",
-    "Interactive learning modules",
-    "Assessment creation and grading",
-    "Student progress tracking",
-    "Attendance management",
-    "Assignment submission and feedback",
-    "Discussion forums",
-    "Video conferencing integration",
-    "Mobile-responsive design",
-    "Analytics dashboard"
+    { text: "Customizable course content", icon: BookOpen },
+    { text: "Interactive learning modules", icon: Users },
+    { text: "Assessment creation and grading", icon: CheckCircle },
+    { text: "Student progress tracking", icon: BarChart4 },
+    { text: "Attendance management", icon: Users },
+    { text: "Assignment submission and feedback", icon: BookOpen },
+    { text: "Discussion forums", icon: Users },
+    { text: "Video conferencing integration", icon: Video },
+    { text: "Mobile-responsive design", icon: Users },
+    { text: "Analytics dashboard", icon: BarChart4 },
   ];
 
   return (
@@ -26,65 +32,74 @@ const LMS = () => {
       <Navbar />
       <main className="flex-grow pt-24 container mx-auto px-4 py-12 mt-12">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold mb-4"style={{color: 'rgb(3 105 161)'}}>Learning Management System</h1>
+          <h1 className="text-4xl font-bold mb-4" style={{ color: "rgb(3 105 161)" }}>
+            Learning Management System
+          </h1>
           <p className="text-lg text-gray-600 max-w-3xl">
             Transform your educational institution with our comprehensive Learning Management System.
             Designed specifically for colleges and universities, our LMS streamlines course delivery,
             assessment, and student engagement.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div>
             <h2 className="text-2xl font-bold mb-6">Why Choose FresherBot LMS?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {lmsFeatures.map((feature, index) => (
                 <div key={index} className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-fresherbot-green mr-2 mt-0.5" />
-                  <span>{feature}</span>
+                  <feature.icon className="h-5 w-5 text-fresherbot-green mr-2 mt-0.5" />
+                  <span>{feature.text}</span>
                 </div>
               ))}
             </div>
           </div>
-          
+
           <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
             <h2 className="text-2xl font-bold mb-4">Ready to Get Started?</h2>
             <p className="mb-6">
               Explore how our LMS can transform your institution's teaching and learning experience.
             </p>
             <div className="flex flex-col space-y-4">
-              <Button size="lg" className="bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-md transition-all">
+              <Button
+                size="lg"
+                className="bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-md transition-all"
+              >
                 Book a Free Demo
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-fresherbot-blue hover:bg-fresherbot-blue/10 transition-all">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-fresherbot-blue hover:bg-fresherbot-blue/10 transition-all"
+              >
                 Company-Specific Assessments
               </Button>
             </div>
           </div>
         </div>
-        
+
         <Tabs defaultValue="overview" className="w-full mb-16">
-          <TabsList className="grid w-full grid-cols-3 mb-8 bg-gray-100 p-1 rounded-lg">
-            <TabsTrigger 
-              value="overview" 
-              className="tab-button data-[state=active]:bg-white data-[state=active]:shadow-sm"
+          <TabsList className="flex space-x-1 bg-gray-100 p-1 rounded-lg">
+            <TabsTrigger
+              value="overview"
+              className="tab-button px-4 py-2 rounded-md data-[state=active]:bg-white data-[state=active]:shadow-sm transition-all"
             >
               Overview
             </TabsTrigger>
-            <TabsTrigger 
-              value="company-assessments" 
-              className="tab-button data-[state=active]:bg-white data-[state=active]:shadow-sm"
+            <TabsTrigger
+              value="company-assessments"
+              className="tab-button px-4 py-2 rounded-md data-[state=active]:bg-white data-[state=active]:shadow-sm transition-all"
             >
               Company-Specific Assessments
             </TabsTrigger>
-            <TabsTrigger 
-              value="demo" 
-              className="tab-button data-[state=active]:bg-white data-[state=active]:shadow-sm"
+            <TabsTrigger
+              value="demo"
+              className="tab-button px-4 py-2 rounded-md data-[state=active]:bg-white data-[state=active]:shadow-sm transition-all"
             >
               Book a Demo
             </TabsTrigger>
           </TabsList>
-          
+
           <TabsContent value="overview">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white p-6 rounded-lg shadow-sm">
@@ -111,7 +126,7 @@ const LMS = () => {
               </div>
             </div>
           </TabsContent>
-          
+
           <TabsContent value="company-assessments">
             <div>
               <h3 className="text-xl font-bold mb-4">Company-Specific Assessments</h3>
@@ -119,7 +134,7 @@ const LMS = () => {
                 Prepare your students for the job market with assessments designed in collaboration with leading
                 companies across various industries.
               </p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <Card className="shadow-sm hover:shadow-md transition-all">
                   <CardHeader>
@@ -135,10 +150,12 @@ const LMS = () => {
                     </p>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-sm">Learn More</Button>
+                    <Button className="w-full bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-sm">
+                      Learn More
+                    </Button>
                   </CardFooter>
                 </Card>
-                
+
                 <Card className="shadow-sm hover:shadow-md transition-all">
                   <CardHeader>
                     <CardTitle>Aptitude Assessments</CardTitle>
@@ -153,10 +170,12 @@ const LMS = () => {
                     </p>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-sm">Learn More</Button>
+                    <Button className="w-full bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-sm">
+                      Learn More
+                    </Button>
                   </CardFooter>
                 </Card>
-                
+
                 <Card className="shadow-sm hover:shadow-md transition-all">
                   <CardHeader>
                     <CardTitle>Domain Assessments</CardTitle>
@@ -171,24 +190,28 @@ const LMS = () => {
                     </p>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-sm">Learn More</Button>
+                    <Button className="w-full bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-sm">
+                      Learn More
+                    </Button>
                   </CardFooter>
                 </Card>
               </div>
             </div>
           </TabsContent>
-          
+
           <TabsContent value="demo">
             <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-sm">
               <h3 className="text-xl font-bold mb-4">Book a Free Demo</h3>
               <p className="text-gray-600 mb-6">
                 Experience the power of our LMS firsthand with a personalized demonstration tailored to your institution's needs.
               </p>
-              
+
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                      Name
+                    </label>
                     <input
                       type="text"
                       id="name"
@@ -197,7 +220,9 @@ const LMS = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                      Email
+                    </label>
                     <input
                       type="email"
                       id="email"
@@ -206,9 +231,11 @@ const LMS = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div>
-                  <label htmlFor="institution" className="block text-sm font-medium text-gray-700">Institution Name</label>
+                  <label htmlFor="institution" className="block text-sm font-medium text-gray-700">
+                    Institution Name
+                  </label>
                   <input
                     type="text"
                     id="institution"
@@ -216,9 +243,11 @@ const LMS = () => {
                     placeholder="Your College/University Name"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number</label>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                    Phone Number
+                  </label>
                   <input
                     type="tel"
                     id="phone"
@@ -226,9 +255,11 @@ const LMS = () => {
                     placeholder="Your Phone Number"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">Additional Information</label>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                    Additional Information
+                  </label>
                   <textarea
                     id="message"
                     rows="4"
@@ -236,9 +267,12 @@ const LMS = () => {
                     placeholder="Tell us about your specific requirements..."
                   ></textarea>
                 </div>
-                
+
                 <div>
-                  <Button type="submit" className="w-full bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-md">
+                  <Button
+                    type="submit"
+                    className="w-full bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-md"
+                  >
                     Request Demo
                   </Button>
                 </div>
@@ -246,7 +280,7 @@ const LMS = () => {
             </div>
           </TabsContent>
         </Tabs>
-        
+
         <div className="mb-16">
           <h2 className="text-2xl font-bold mb-6">Success Stories</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -264,7 +298,7 @@ const LMS = () => {
                 <p className="text-sm text-gray-500">- Dr. Rajesh Kumar, Director of E-Learning</p>
               </CardFooter>
             </Card>
-            
+
             <Card className="shadow-sm hover:shadow-md transition-all">
               <CardHeader>
                 <CardTitle>SRM Institute of Technology</CardTitle>
@@ -279,7 +313,7 @@ const LMS = () => {
                 <p className="text-sm text-gray-500">- Prof. Anita Desai, Placement Coordinator</p>
               </CardFooter>
             </Card>
-            
+
             <Card className="shadow-sm hover:shadow-md transition-all">
               <CardHeader>
                 <CardTitle>BITS Pilani</CardTitle>

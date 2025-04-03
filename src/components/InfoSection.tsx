@@ -107,7 +107,8 @@ const InfoSection = () => {
                   </div>
                 ))}
               </div>
-              
+
+                 {/* NO CLARITY REGARDING THIS BUTTONS HAVE TO ASK AND REDIRECT */}
               <Button className="mt-8 bg-fresherbot-blue hover:bg-fresherbot-lightBlue text-white px-6" asChild>
                 <Link to="/register">Get Started Today</Link>
               </Button>

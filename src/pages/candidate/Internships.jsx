@@ -17,7 +17,9 @@ const Internships = () => {
     setMounted(true);
     document.title = "Internships - FresherBot";
   }, []);
-  
+
+
+  //  FROM CREEKSFORGREEKS
   const longTermInternships = [
     {
       id: 1,
@@ -53,7 +55,7 @@ const Internships = () => {
       tags: ["AWS", "Docker", "Jenkins"]
     }
   ];
-  
+    //  FROM CREEKSFORGREEKS
   const shortTermInternships = [
     {
       id: 1,
@@ -89,7 +91,8 @@ const Internships = () => {
       tags: ["Blogging", "Copywriting", "SEO Writing"]
     }
   ];
-  
+    //  FROM CREEKSFORGREEKS
+    // all can be written in one list and can be filterd but took different lists without filtering
   const apsceInternships = [
     {
       id: 1,

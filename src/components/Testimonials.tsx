@@ -12,25 +12,25 @@ import { Quote } from "lucide-react";
 const testimonials = [
   {
     quote: "FresherBot helped me land my first job in tech within just 2 months of completing their program.",
-    author: "Priya Sharma",
+    author: "NTR",
     position: "Software Developer",
-    company: "TechCorp"
+    company: "ANDHRA"
   },
   {
     quote: "The training programs are comprehensive and aligned perfectly with industry requirements.",
-    author: "Rahul Kumar",
-    position: "Data Analyst",
-    company: "Analytics Inc."
+    author: "NAGA CHAITANYA",
+    position: "Data Analyst,PIZZA",
+    company: "SCUZI"
   },
   {
     quote: "As an employer, finding qualified freshers has never been easier. The platform provides great talent.",
-    author: "Neha Gupta",
+    author: "RAM CHARAN",
     position: "HR Manager",
-    company: "InnovateTech"
+    company: "APCFSS"
   },
   {
     quote: "Our college's placement rates improved by 40% after partnering with FresherBot.",
-    author: "Dr. Rajan Iyer",
+    author: "Dr. SANDEEP REDDY VANGA",
     position: "Placement Director",
     company: "Engineering College"
   }

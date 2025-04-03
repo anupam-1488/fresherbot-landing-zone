@@ -45,7 +45,7 @@ const Hero = () => {
 
           <div className="text-3xl md:text-5xl font-bold mb-8 text-fresherbot-blue">
             {showTypedText ? (
-              <TypedText text=" WE HAVE GOT YOUR BACK" typingSpeed={200} />
+              <TypedText text=" WE HAVE GOT YOUR BACK" typingSpeed={70} />
             ) : (
               <span>&nbsp;</span>
             )}
@@ -56,6 +56,7 @@ const Hero = () => {
             freshers and early career professionals.
           </p>
 
+          {/* NO CLARITY REGARDING THIS BUTTONS HAVE TO ASK AND REDIRECT */}
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
               size="lg"
@@ -90,7 +91,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Wave overlay at bottom of hero */}
+      {/* Wave overlay at bottom of hero--just white one not asked but done */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
         <svg
           xmlns="http://www.w3.org/2000/svg"
