@@ -64,9 +64,15 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				fresherbot: {
-					blue: '#2563eb',
-					lightBlue: '#3b82f6',
-					green: '#10b981',
+					primary: '#6366f1',     // Indigo
+					secondary: '#8b5cf6',   // Violet
+					accent: '#ec4899',      // Pink
+					dark: '#1e293b',        // Slate-800
+					light: '#f8fafc',       // Slate-50
+					success: '#10b981',     // Emerald-500
+					warning: '#f59e0b',     // Amber-500
+					info: '#0ea5e9',        // Sky-500
+					muted: '#94a3b8'        // Slate-400
 				}
 			},
 			borderRadius: {
@@ -98,6 +104,14 @@ export default {
 				'blink': {
 					'0%, 100%': { borderColor: 'transparent' },
 					'50%': { borderColor: 'hsl(var(--foreground))' },
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+				'pulse-slow': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.8' },
 				}
 			},
 			animation: {
@@ -105,6 +119,13 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'typing': 'typing 2s steps(20, end)',
 				'cursor-blink': 'blink 1s step-end infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite'
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+				'mesh-gradient': 'linear-gradient(45deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 50%, rgba(236, 72, 153, 0.1) 100%)'
 			}
 		}
 	},
