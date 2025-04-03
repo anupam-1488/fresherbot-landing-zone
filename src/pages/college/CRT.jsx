@@ -1,11 +1,17 @@
-
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { GraduationCap, Users, BarChart, Building } from "lucide-react";
+import CountUp from "react-countup";
+import { motion } from "framer-motion";
 
 const CRT = () => {
+  useEffect(() => {
+    document.title = "Campus Recruitment Training - FresherBot";
+  }, []);
+
   const crtModules = [
     {
       id: 1,
@@ -54,17 +60,22 @@ const CRT = () => {
   ];
   
   const statistics = [
-    { value: "85%", label: "Placement Rate" },
-    { value: "200+", label: "Partner Companies" },
-    { value: "50,000+", label: "Students Trained" },
-    { value: "300+", label: "College Partners" }
+    { value: 85, suffix: "%", label: "Placement Rate", icon: <GraduationCap className="h-6 w-6 text-fresherbot-blue" /> },
+    { value: 200, suffix: "+", label: "Partner Companies", icon: <Building className="h-6 w-6 text-fresherbot-blue" /> },
+    { value: 50000, suffix: "+", label: "Students Trained", icon: <Users className="h-6 w-6 text-fresherbot-blue" /> },
+    { value: 300, suffix: "+", label: "College Partners", icon: <BarChart className="h-6 w-6 text-fresherbot-blue" /> }
   ];
+
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-16 container mx-auto px-4 py-12 mt-12">
-        <div className="mb-12">
+        <div className="mb-12 bg-gradient-to-r from-blue-50 to-white p-8 rounded-2xl shadow-sm">
           <h1 className="text-4xl font-bold mb-4" style={{color: 'rgb(3 105 161)'}}>Campus Recruitment Training (CRT)</h1>
           <p className="text-lg text-gray-600 max-w-3xl">
             Prepare your students for successful campus placements with our comprehensive
@@ -73,42 +84,69 @@ const CRT = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+          }}
+        >
           {statistics.map((stat, index) => (
-            <div key={index} className="bg-gray-50 p-6 rounded-lg text-center">
-              <p className="text-4xl font-bold text-fresherbot-blue">{stat.value}</p>
-              <p className="text-gray-600">{stat.label}</p>
-            </div>
+            <motion.div key={index} variants={fadeIn}>
+              <div className="bg-white border border-gray-100 p-6 rounded-lg text-center shadow-sm hover:shadow-md transition-shadow">
+                <div className="inline-flex p-3 bg-blue-50 rounded-full mb-4">
+                  {stat.icon}
+                </div>
+                <p className="text-4xl font-bold text-fresherbot-blue">
+                  <CountUp end={stat.value} duration={2.5} suffix={stat.suffix} />
+                </p>
+                <p className="text-gray-600">{stat.label}</p>
+              </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         
         <div className="mb-16">
-          <h2 className="text-2xl font-bold mb-6">Our CRT Program</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <h2 className="text-2xl font-bold mb-6" style={{color: 'rgb(3 105 161)'}}>Our CRT Program</h2>
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+            }}
+          >
             {crtModules.map((module) => (
-              <Card key={module.id}>
-                <CardHeader>
-                  <CardTitle>{module.title}</CardTitle>
-                  <CardDescription>{module.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <h3 className="font-medium mb-2">Key Components:</h3>
-                  <ul className="space-y-1">
-                    {module.features.map((feature, index) => (
-                      <li key={index} className="flex items-center">
-                        <div className="h-1.5 w-1.5 rounded-full bg-fresherbot-blue mr-2"></div>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+              <motion.div key={module.id} variants={fadeIn}>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>{module.title}</CardTitle>
+                    <CardDescription>{module.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <h3 className="font-medium mb-2">Key Components:</h3>
+                    <ul className="space-y-1">
+                      {module.features.map((feature, index) => (
+                        <li key={index} className="flex items-center">
+                          <div className="h-1.5 w-1.5 rounded-full bg-fresherbot-blue mr-2"></div>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
         
         <div className="mb-16">
-          <h2 className="text-2xl font-bold mb-6">Program Timeline</h2>
+          <h2 className="text-2xl font-bold mb-6" style={{color: 'rgb(3 105 161)'}}>Program Timeline</h2>
           <div className="relative border-l-2 border-fresherbot-blue pl-8 space-y-12">
             <div>
               <div className="absolute -left-3 mt-1.5"> 
@@ -176,7 +214,13 @@ const CRT = () => {
           </div>
         </div>
         
-        <div className="bg-fresherbot-blue text-white p-8 rounded-lg">
+        <motion.div 
+          className="bg-fresherbot-blue text-white p-8 rounded-lg"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-4">Partner with Us</h2>
             <p className="text-lg mb-6">
@@ -187,12 +231,12 @@ const CRT = () => {
               <Button size="lg" className="bg-white text-fresherbot-blue hover:bg-gray-100">
                 Schedule a Meeting
               </Button>
-              <Button size="lg" variant="outline" className="text-fresherbot-blue border-white hover:bg-white hover:text-fresherbot-blue">
+              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
                 Request Brochure
               </Button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </main>
       <Footer />
     </div>

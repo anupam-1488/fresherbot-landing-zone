@@ -11,6 +11,14 @@ const Index = () => {
   useEffect(() => {
     // Update document title
     document.title = "FresherBot - Building Your Career, Together";
+    
+    // Add smooth scroll behavior to the entire document
+    document.documentElement.style.scrollBehavior = "smooth";
+    
+    return () => {
+      // Clean up
+      document.documentElement.style.scrollBehavior = "";
+    };
   }, []);
 
   return (
