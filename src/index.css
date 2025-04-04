@@ -33,22 +33,15 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -97,87 +90,74 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
 }
 
-/* Ensure page content doesn't go under the header */
+@layer components {
+  .hero-gradient-overlay {
+    @apply bg-gradient-to-r from-black/70 via-black/50 to-transparent;
+  }
+  
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24;
+  }
+  
+  .heading-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-fresherbot-primary to-fresherbot-accent;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-fresherbot-primary/50;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-fresherbot-primary to-fresherbot-secondary text-white hover:from-fresherbot-primary/90 hover:to-fresherbot-secondary/90 transition-all shadow-md hover:shadow-lg;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-fresherbot-primary text-fresherbot-primary hover:bg-fresherbot-primary/10 transition-all;
+  }
+  
+  .icon-feature {
+    @apply p-3 rounded-xl bg-gradient-to-br from-fresherbot-primary/10 to-fresherbot-secondary/10;
+  }
+}
+
+/* Header and navigation styles */
 .pt-16 {
-  padding-top: 5rem; /* Increase padding to prevent content from going under header */
+  padding-top: 5rem;
 }
 
-/* Enhanced button styles */
-.tab-button {
-  @apply px-4 py-2 rounded-md transition-all duration-300 font-medium border-2 relative overflow-hidden;
+/* Modern card styles */
+.glass-card {
+  @apply bg-white/70 backdrop-blur-md border border-white/20 rounded-3xl shadow-xl;
 }
 
-.tab-button::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px;
-  width: 0;
-  background-color: currentColor;
-  transition: width 0.3s ease;
+/* Animation styles */
+.animated-badge {
+  @apply animate-pulse-slow;
 }
 
-.tab-button:hover::before {
-  width: 100%;
+.animated-feature {
+  @apply animate-float;
 }
 
-.tab-button[data-state="active"]::before {
-  width: 100%;
+/* Mesh gradient backgrounds */
+.mesh-bg {
+  @apply bg-mesh-gradient;
 }
 
-/* Card animations */
-.card-hover-effect {
-  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+/* Testimonial styles */
+.testimonial-card {
+  @apply rounded-2xl p-6 bg-white shadow-lg border border-gray-100;
 }
 
-/* Page transition animations */
-.page-transition-enter {
-  opacity: 0;
-  transform: translateY(10px);
+/* Responsive text styles */
+.responsive-heading {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold;
 }
 
-.page-transition-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 300ms, transform 300ms;
-}
-
-.page-transition-exit {
-  opacity: 1;
-}
-
-.page-transition-exit-active {
-  opacity: 0;
-  transition: opacity 300ms;
-}
-
-/* Hero section enhancements */
-.hero-gradient-overlay {
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
-}
-
-.glassmorphism {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Enhanced section spacing */
-.section-spacing {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-}
-
-/* Typography enhancements */
-.heading-xl {
-  @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
-}
-
-.heading-lg {
-  @apply text-3xl md:text-4xl font-bold;
+.responsive-subheading {
+  @apply text-xl md:text-2xl font-semibold;
 }
