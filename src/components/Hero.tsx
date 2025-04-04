@@ -25,7 +25,7 @@ const Hero = () => {
     <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
       {/* Modern geometric background with gradient overlay */}
       <div className="absolute inset-0 bg-mesh-bg z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-fresherbot-dark/90 via-fresherbot-dark/80 to-fresherbot-dark/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-fresherbot-dark/95 via-fresherbot-dark/90 to-fresherbot-dark/85"></div>
         
         {/* Animated shapes */}
         <motion.div 
@@ -41,7 +41,7 @@ const Hero = () => {
           }}
         />
         <motion.div 
-          className="absolute bottom-32 -left-16 w-72 h-72 rounded-full bg-fresherbot-accent/20 blur-3xl"
+          className="absolute bottom-32 -left-16 w-72 h-72 rounded-full bg-fresherbot-secondary/20 blur-3xl"
           animate={{
             x: [0, -30, 0],
             y: [0, 30, 0],
@@ -57,12 +57,12 @@ const Hero = () => {
       <div className="container mx-auto px-4 z-10 text-white">
         <div className="max-w-3xl">
           <motion.div 
-            className="inline-flex items-center mb-6 bg-white/10 backdrop-blur-md py-2 px-4 rounded-full border border-white/20"
+            className="inline-flex items-center mb-6 bg-fresherbot-primary/20 backdrop-blur-md py-2 px-4 rounded-full border border-fresherbot-primary/40"
             initial={fadeIn.hidden}
             animate={fadeIn.visible}
           >
-            <Sparkles className="h-4 w-4 mr-2 text-fresherbot-accent" />
-            <span className="text-sm font-medium">
+            <Sparkles className="h-4 w-4 mr-2 text-fresherbot-primary" />
+            <span className="text-sm font-medium text-fresherbot-primary">
               Join 10,000+ freshers already on board
             </span>
           </motion.div>
@@ -73,7 +73,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Building your <span className="text-fresherbot-accent">future</span> starts here
+            Building your <span className="text-fresherbot-primary">future</span> starts here
           </motion.h1>
 
           <motion.div 
@@ -107,7 +107,7 @@ const Hero = () => {
           >
             <Button 
               size="lg" 
-              className="btn-primary text-white px-8 py-6 text-lg flex items-center rounded-full"
+              className="bg-fresherbot-primary hover:bg-fresherbot-primary/90 text-fresherbot-dark px-8 py-6 text-lg flex items-center rounded-full font-semibold"
             >
               Explore Opportunities
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -115,7 +115,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-2 border-white bg-white/10 hover:bg-white/20 text-white px-8 py-6 text-lg transition-all rounded-full"
+              className="border-2 border-fresherbot-primary bg-transparent hover:bg-fresherbot-primary/10 text-fresherbot-primary px-8 py-6 text-lg transition-all rounded-full"
             >
               Learn More
             </Button>
@@ -128,20 +128,20 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 1 }}
           >
             <div className="flex items-center">
-              <div className="bg-white/10 backdrop-blur-sm p-2 rounded-full">
-                <Check className="h-5 w-5 text-fresherbot-accent" />
+              <div className="bg-fresherbot-primary/20 backdrop-blur-sm p-2 rounded-full">
+                <Check className="h-5 w-5 text-fresherbot-primary" />
               </div>
               <span className="ml-2 text-sm md:text-base">300+ Programs</span>
             </div>
             <div className="flex items-center">
-              <div className="bg-white/10 backdrop-blur-sm p-2 rounded-full">
+              <div className="bg-fresherbot-primary/20 backdrop-blur-sm p-2 rounded-full">
                 <Users className="h-5 w-5 text-fresherbot-primary" />
               </div>
               <span className="ml-2 text-sm md:text-base">500+ Employers</span>
             </div>
             <div className="flex items-center">
-              <div className="bg-white/10 backdrop-blur-sm p-2 rounded-full">
-                <Rocket className="h-5 w-5 text-fresherbot-secondary" />
+              <div className="bg-fresherbot-primary/20 backdrop-blur-sm p-2 rounded-full">
+                <Rocket className="h-5 w-5 text-fresherbot-primary" />
               </div>
               <span className="ml-2 text-sm md:text-base">97% Success Rate</span>
             </div>
