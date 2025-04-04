@@ -1,58 +1,63 @@
 
-import { useEffect, useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface TypedTextProps {
   text: string;
   typingSpeed?: number;
-  className?: string;
+  delay?: number;
 }
 
-const TypedText = ({ text, typingSpeed = 100, className = "" }: TypedTextProps) => {
+const TypedText = ({ text, typingSpeed = 50, delay = 0 }: TypedTextProps) => {
   const [displayText, setDisplayText] = useState("");
-  const [isTyping, setIsTyping] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTyping, setIsTyping] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Clear timeout on component unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
-    let currentIndex = 0;
-    let timer: NodeJS.Timeout;
-
-    if (isTyping) {
-      timer = setInterval(() => {
-        if (currentIndex < text.length) {
-          const char = text[currentIndex];
-          const charCode = text.charCodeAt(currentIndex);
-
-          setDisplayText((prev) => {
-            const newText = prev + char;
-            console.log(
-              "Adding character:",
-              char,
-              "Character code:",
-              charCode,
-              "Current text:",
-              newText
-            );
-            return newText;
-          });
-          currentIndex++;
-        } else {
-          setIsTyping(false);
-          clearInterval(timer);
-          console.log("Typing complete. Final text:", displayText);
-        }
-      }, typingSpeed);
+    // Reset state when text prop changes
+    setDisplayText("");
+    setCurrentIndex(0);
+    setIsTyping(false);
+    
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
     }
+    
+    // Start typing after delay
+    timeoutRef.current = setTimeout(() => {
+      setIsTyping(true);
+    }, delay);
+  }, [text, delay]);
 
-    return () => clearInterval(timer);
-  }, [text, typingSpeed, isTyping]);
+  useEffect(() => {
+    if (!isTyping) return;
+    
+    if (currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+        console.log("Adding character:", text[currentIndex], "Character code:", text.charCodeAt(currentIndex), "Current text:", displayText);
+      }, typingSpeed);
+      
+      timeoutRef.current = timeout;
+      
+      return () => clearTimeout(timeout);
+    } else {
+      setIsTyping(false);
+      console.log("Typing complete. Final text:", displayText);
+    }
+  }, [currentIndex, isTyping, text, typingSpeed, displayText]);
 
-  return (
-    <div className={`relative inline-block ${className}`}>
-      <span style={{ whiteSpace: "pre" }}>{displayText}</span>
-      {isTyping && (
-        <span className="inline-block w-[2px] bg-current animate-cursor-blink"></span>
-      )}
-    </div>
-  );
+  return <span>{displayText}</span>;
 };
 
 export default TypedText;

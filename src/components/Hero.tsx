@@ -77,13 +77,13 @@ const Hero = () => {
           </motion.h1>
 
           <motion.div 
-            className="text-3xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-fresherbot-primary to-fresherbot-secondary bg-clip-text text-transparent"
+            className="text-3xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-fresherbot-primary to-fresherbot-secondary bg-clip-text text-transparent h-[60px]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             {showTypedText ? (
-              <TypedText text="TOGETHER WE ACHIEVE MORE" typingSpeed={100} />
+              <TypedText text="WE HAVE GOT YOUR BACK" typingSpeed={100} />
             ) : (
               <span>&nbsp;</span>
             )}
