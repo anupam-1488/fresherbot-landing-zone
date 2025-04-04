@@ -115,8 +115,8 @@ const Index = () => {
               <div className="aspect-square lg:aspect-auto lg:h-[600px] rounded-3xl overflow-hidden relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-fresherbot-primary/30 to-fresherbot-secondary/30 mix-blend-overlay"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2342&q=80" 
-                  alt="Career professionals collaborating" 
+                  src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                  alt="Indian tech professionals collaborating" 
                   className="object-cover h-full w-full"
                 />
               </div>
@@ -303,8 +303,8 @@ const Index = () => {
               <div className="rounded-3xl overflow-hidden relative aspect-video lg:aspect-square shadow-2xl border border-white/10">
                 <div className="absolute inset-0 bg-gradient-to-tr from-fresherbot-primary/30 to-fresherbot-accent/30 mix-blend-overlay"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" 
-                  alt="Team of professionals collaborating" 
+                  src="https://images.unsplash.com/photo-1537511446984-935f663eb1f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                  alt="Indian tech team collaborating" 
                   className="object-cover h-full w-full"
                 />
               </div>
