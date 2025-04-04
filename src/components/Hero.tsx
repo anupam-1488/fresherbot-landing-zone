@@ -24,12 +24,12 @@ const Hero = () => {
   return (
     <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
       {/* Modern geometric background with gradient overlay */}
-      <div className="absolute inset-0 bg-mesh-bg z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-fresherbot-dark/95 via-fresherbot-dark/90 to-fresherbot-dark/85"></div>
+      <div className="absolute inset-0 bg-fresherbot-darker z-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-fresherbot-darker via-fresherbot-dark to-fresherbot-dark/90"></div>
         
         {/* Animated shapes */}
         <motion.div 
-          className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-fresherbot-primary/20 blur-3xl"
+          className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-fresherbot-primary/10 blur-3xl"
           animate={{
             x: [0, 20, 0],
             y: [0, -20, 0],
@@ -41,7 +41,7 @@ const Hero = () => {
           }}
         />
         <motion.div 
-          className="absolute bottom-32 -left-16 w-72 h-72 rounded-full bg-fresherbot-secondary/20 blur-3xl"
+          className="absolute bottom-32 -left-16 w-72 h-72 rounded-full bg-fresherbot-secondary/10 blur-3xl"
           animate={{
             x: [0, -30, 0],
             y: [0, 30, 0],
@@ -54,10 +54,10 @@ const Hero = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 z-10 text-white">
+      <div className="container mx-auto px-4 z-10">
         <div className="max-w-3xl">
           <motion.div 
-            className="inline-flex items-center mb-6 bg-fresherbot-primary/20 backdrop-blur-md py-2 px-4 rounded-full border border-fresherbot-primary/40"
+            className="inline-flex items-center mb-6 bg-fresherbot-primary/10 backdrop-blur-md py-2 px-4 rounded-full border border-fresherbot-primary/30"
             initial={fadeIn.hidden}
             animate={fadeIn.visible}
           >
@@ -77,7 +77,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.div 
-            className="text-3xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-fresherbot-primary to-fresherbot-secondary bg-clip-text text-transparent h-[60px]"
+            className="text-3xl md:text-5xl font-bold mb-8 heading-gradient h-[60px]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -149,7 +149,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Modern wave overlay at bottom of hero */}
+      {/* Bottom wave overlay in brand colors */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
         <svg
           xmlns="http://www.w3.org/2000/svg" 
@@ -158,7 +158,7 @@ const Hero = () => {
           preserveAspectRatio="none"
         >
           <path
-            fill="#ffffff"
+            fill="#121212"
             fillOpacity="1"
             d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
           ></path>
