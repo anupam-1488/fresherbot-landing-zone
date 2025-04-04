@@ -77,7 +77,7 @@ const Navbar = () => {
           <Link
             to={href}
             className={cn(
-              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-fresherbot-primary/10 hover:text-fresherbot-primary focus:bg-fresherbot-primary/10 focus:text-fresherbot-primary",
               className
             )}
           >
@@ -92,13 +92,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full bg-white shadow-sm py-6 fixed top-0 left-0 right-0 z-50">
+    <nav className="w-full bg-fresherbot-darker shadow-sm py-6 fixed top-0 left-0 right-0 z-50 border-b border-fresherbot-primary/20">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
-            {/* <span className="text-2xl font-bold text-fresherbot-blue"></span> */}
             <img src={logo} alt="Fresherbot Logo" />
-            </Link>
+          </Link>
         </div>
         
         {isMobile ? (
@@ -113,40 +112,40 @@ const Navbar = () => {
             </Button>
             
             {menuOpen && (
-              <div className="absolute top-16 right-0 left-0 bg-white shadow-md py-4 px-4">
+              <div className="absolute top-16 right-0 left-0 bg-fresherbot-dark shadow-md py-4 px-4 border-b border-fresherbot-primary/20">
                 <div className="flex flex-col space-y-3">
                   <div className="px-4 py-2">
-                    <p className="font-medium flex items-center"><BookOpen className="h-4 w-4 mr-2" /> For Candidate</p>
+                    <p className="font-medium flex items-center text-fresherbot-primary"><BookOpen className="h-4 w-4 mr-2" /> For Candidate</p>
                     <div className="ml-4 mt-1 space-y-1">
-                      <Link to="/candidate/blog" className="block px-2 py-1 hover:bg-gray-100 rounded-md">Blog</Link>
-                      <Link to="/candidate/programs" className="block px-2 py-1 hover:bg-gray-100 rounded-md">Programs</Link>
-                      <Link to="/candidate/internships" className="block px-2 py-1 hover:bg-gray-100 rounded-md">Internships</Link>
+                      <Link to="/candidate/blog" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Blog</Link>
+                      <Link to="/candidate/programs" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Programs</Link>
+                      <Link to="/candidate/internships" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Internships</Link>
                     </div>
                   </div>
                   
                   <div className="px-4 py-2">
-                    <p className="font-medium flex items-center"><Building className="h-4 w-4 mr-2" /> For Employer</p>
+                    <p className="font-medium flex items-center text-fresherbot-primary"><Building className="h-4 w-4 mr-2" /> For Employer</p>
                     <div className="ml-4 mt-1 space-y-1">
-                      <Link to="/employer/hiring-assessments" className="block px-2 py-1 hover:bg-gray-100 rounded-md">Hiring Assessments</Link>
-                      <Link to="/employer/hackathon" className="block px-2 py-1 hover:bg-gray-100 rounded-md">Hackathon</Link>
-                      <Link to="/employer/campus-hiring" className="block px-2 py-1 hover:bg-gray-100 rounded-md">Campus Hiring</Link>
+                      <Link to="/employer/hiring-assessments" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Hiring Assessments</Link>
+                      <Link to="/employer/hackathon" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Hackathon</Link>
+                      <Link to="/employer/campus-hiring" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Campus Hiring</Link>
                     </div>
                   </div>
                   
                   <div className="px-4 py-2">
-                    <p className="font-medium flex items-center"><GraduationCap className="h-4 w-4 mr-2" /> For College</p>
+                    <p className="font-medium flex items-center text-fresherbot-primary"><GraduationCap className="h-4 w-4 mr-2" /> For College</p>
                     <div className="ml-4 mt-1 space-y-1">
-                      <Link to="/college/lms" className="block px-2 py-1 hover:bg-gray-100 rounded-md">LMS</Link>
-                      <Link to="/college/crt" className="block px-2 py-1 hover:bg-gray-100 rounded-md">CRT</Link>
-                      <Link to="/college/hrcc" className="block px-2 py-1 hover:bg-gray-100 rounded-md">HRCC</Link>
+                      <Link to="/college/lms" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">LMS</Link>
+                      <Link to="/college/crt" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">CRT</Link>
+                      <Link to="/college/hrcc" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">HRCC</Link>
                     </div>
                   </div>
                   
-                  <div className="border-t pt-2 flex flex-col space-y-2">
-                    <Button variant="outline" asChild>
+                  <div className="border-t border-fresherbot-primary/20 pt-2 flex flex-col space-y-2">
+                    <Button variant="outline" className="border-fresherbot-primary text-fresherbot-primary hover:bg-fresherbot-primary/10" asChild>
                       <Link to="/login">Login</Link>
                     </Button>
-                    <Button className="bg-fresherbot-blue hover:bg-fresherbot-lightBlue" asChild>
+                    <Button className="bg-fresherbot-primary text-fresherbot-dark hover:bg-fresherbot-primary/90" asChild>
                       <Link to="/register">Register</Link>
                     </Button>
                   </div>
@@ -159,11 +158,11 @@ const Navbar = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="flex items-center">
+                  <NavigationMenuTrigger className="flex items-center text-foreground hover:text-fresherbot-primary">
                     <BookOpen className="h-4 w-4 mr-1" /> For Candidate
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-3">
+                    <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-3 bg-fresherbot-dark border border-fresherbot-primary/20">
                       <ListItem href="/candidate/blog" title="Blog" className="">
                         Read our latest articles and updates.
                       </ListItem>
@@ -178,11 +177,11 @@ const Navbar = () => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="flex items-center">
+                  <NavigationMenuTrigger className="flex items-center text-foreground hover:text-fresherbot-primary">
                     <Building className="h-4 w-4 mr-1" /> For Employer
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-3">
+                    <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-3 bg-fresherbot-dark border border-fresherbot-primary/20">
                       <ListItem href="/employer/hiring-assessments" title="Hiring Assessments" className="">
                         Assess candidates effectively.
                       </ListItem>
@@ -197,11 +196,11 @@ const Navbar = () => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="flex items-center">
+                  <NavigationMenuTrigger className="flex items-center text-foreground hover:text-fresherbot-primary">
                     <GraduationCap className="h-4 w-4 mr-1" /> For College
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-3">
+                    <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-3 bg-fresherbot-dark border border-fresherbot-primary/20">
                       <ListItem href="/college/lms" title="LMS" className="">
                         Learning Management System solutions.
                       </ListItem>
@@ -218,10 +217,10 @@ const Navbar = () => {
             </NavigationMenu>
             
             <div className="flex space-x-2">
-              <Button variant="outline" className="border-2 border-fresherbot-blue hover:bg-fresherbot-blue/10" asChild>
+              <Button variant="outline" className="border-2 border-fresherbot-primary text-fresherbot-primary hover:bg-fresherbot-primary/10" asChild>
                 <Link to="/login">Login</Link>
               </Button>
-              <Button className="bg-fresherbot-blue hover:bg-fresherbot-lightBlue shadow-md" asChild>
+              <Button className="bg-fresherbot-primary text-fresherbot-dark hover:bg-fresherbot-primary/90 shadow-md" asChild>
                 <Link to="/register">Register</Link>
               </Button>
             </div>

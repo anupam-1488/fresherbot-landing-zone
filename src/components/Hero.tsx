@@ -24,12 +24,12 @@ const Hero = () => {
   return (
     <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
       {/* Modern geometric background with gradient overlay */}
-      <div className="absolute inset-0 bg-mesh-bg z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-fresherbot-dark/90 via-fresherbot-dark/80 to-fresherbot-dark/70"></div>
+      <div className="absolute inset-0 bg-fresherbot-darker z-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-fresherbot-darker via-fresherbot-dark to-fresherbot-dark/90"></div>
         
         {/* Animated shapes */}
         <motion.div 
-          className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-fresherbot-primary/20 blur-3xl"
+          className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-fresherbot-primary/10 blur-3xl"
           animate={{
             x: [0, 20, 0],
             y: [0, -20, 0],
@@ -41,7 +41,7 @@ const Hero = () => {
           }}
         />
         <motion.div 
-          className="absolute bottom-32 -left-16 w-72 h-72 rounded-full bg-fresherbot-accent/20 blur-3xl"
+          className="absolute bottom-32 -left-16 w-72 h-72 rounded-full bg-fresherbot-secondary/10 blur-3xl"
           animate={{
             x: [0, -30, 0],
             y: [0, 30, 0],
@@ -54,15 +54,15 @@ const Hero = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 z-10 text-white">
+      <div className="container mx-auto px-4 z-10">
         <div className="max-w-3xl">
           <motion.div 
-            className="inline-flex items-center mb-6 bg-white/10 backdrop-blur-md py-2 px-4 rounded-full border border-white/20"
+            className="inline-flex items-center mb-6 bg-fresherbot-primary/10 backdrop-blur-md py-2 px-4 rounded-full border border-fresherbot-primary/30"
             initial={fadeIn.hidden}
             animate={fadeIn.visible}
           >
-            <Sparkles className="h-4 w-4 mr-2 text-fresherbot-accent" />
-            <span className="text-sm font-medium">
+            <Sparkles className="h-4 w-4 mr-2 text-fresherbot-primary" />
+            <span className="text-sm font-medium text-fresherbot-primary">
               Join 10,000+ freshers already on board
             </span>
           </motion.div>
@@ -73,11 +73,11 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Building your <span className="text-fresherbot-accent">future</span> starts here
+            Building your <span className="text-fresherbot-primary">future</span> starts here
           </motion.h1>
 
           <motion.div 
-            className="text-3xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-fresherbot-primary to-fresherbot-secondary bg-clip-text text-transparent h-[60px]"
+            className="text-3xl md:text-5xl font-bold mb-8 heading-gradient h-[60px]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -107,7 +107,7 @@ const Hero = () => {
           >
             <Button 
               size="lg" 
-              className="btn-primary text-white px-8 py-6 text-lg flex items-center rounded-full"
+              className="bg-fresherbot-primary hover:bg-fresherbot-primary/90 text-fresherbot-dark px-8 py-6 text-lg flex items-center rounded-full font-semibold"
             >
               Explore Opportunities
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -115,7 +115,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-2 border-white bg-white/10 hover:bg-white/20 text-white px-8 py-6 text-lg transition-all rounded-full"
+              className="border-2 border-fresherbot-primary bg-transparent hover:bg-fresherbot-primary/10 text-fresherbot-primary px-8 py-6 text-lg transition-all rounded-full"
             >
               Learn More
             </Button>
@@ -128,20 +128,20 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 1 }}
           >
             <div className="flex items-center">
-              <div className="bg-white/10 backdrop-blur-sm p-2 rounded-full">
-                <Check className="h-5 w-5 text-fresherbot-accent" />
+              <div className="bg-fresherbot-primary/20 backdrop-blur-sm p-2 rounded-full">
+                <Check className="h-5 w-5 text-fresherbot-primary" />
               </div>
               <span className="ml-2 text-sm md:text-base">300+ Programs</span>
             </div>
             <div className="flex items-center">
-              <div className="bg-white/10 backdrop-blur-sm p-2 rounded-full">
+              <div className="bg-fresherbot-primary/20 backdrop-blur-sm p-2 rounded-full">
                 <Users className="h-5 w-5 text-fresherbot-primary" />
               </div>
               <span className="ml-2 text-sm md:text-base">500+ Employers</span>
             </div>
             <div className="flex items-center">
-              <div className="bg-white/10 backdrop-blur-sm p-2 rounded-full">
-                <Rocket className="h-5 w-5 text-fresherbot-secondary" />
+              <div className="bg-fresherbot-primary/20 backdrop-blur-sm p-2 rounded-full">
+                <Rocket className="h-5 w-5 text-fresherbot-primary" />
               </div>
               <span className="ml-2 text-sm md:text-base">97% Success Rate</span>
             </div>
@@ -149,7 +149,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Modern wave overlay at bottom of hero */}
+      {/* Bottom wave overlay in brand colors */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
         <svg
           xmlns="http://www.w3.org/2000/svg" 
@@ -158,7 +158,7 @@ const Hero = () => {
           preserveAspectRatio="none"
         >
           <path
-            fill="#ffffff"
+            fill="#121212"
             fillOpacity="1"
             d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
           ></path>

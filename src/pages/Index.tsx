@@ -5,321 +5,159 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, Award, Users, ChevronRight, Zap, Shield, Target, Coffee } from "lucide-react";
+import { 
+  BarChart, 
+  CheckCircle, 
+  Rocket, 
+  Users, 
+  GraduationCap, 
+  BriefcaseBusiness, 
+  Globe,
+  ArrowRight
+} from "lucide-react";
+import FeaturedPrograms from "@/components/FeaturedPrograms";
+import StatisticsSection from "@/components/StatisticsSection";
+import CTASection from "@/components/CTASection";
 
 const Index = () => {
   useEffect(() => {
-    // Update document title
-    document.title = "FresherBot - Building Your Career, Together";
-    
-    // Add smooth scroll behavior to the entire document
+    document.title = "FresherBot - Launch Your Career Journey";
     document.documentElement.style.scrollBehavior = "smooth";
     
     return () => {
-      // Clean up
       document.documentElement.style.scrollBehavior = "";
     };
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-fresherbot-darker">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 overflow-hidden bg-gradient-to-br from-fresherbot-dark to-black text-white">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="relative pt-20 pb-16 lg:pt-24 lg:pb-24 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center opacity-20"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-fresherbot-darker to-transparent opacity-90"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              className="order-2 lg:order-1"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              className="lg:col-span-6 lg:pr-8"
             >
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.7 }}
-                className="inline-block px-4 py-1.5 mb-5 bg-gradient-to-r from-fresherbot-primary/30 to-fresherbot-secondary/30 rounded-full text-sm font-medium border border-fresherbot-primary/30"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
               >
-                Launch Your Career With Confidence
+                <span className="inline-block px-3 py-1 border border-fresherbot-primary text-fresherbot-primary text-sm font-medium rounded-full mb-4">
+                  Your Career Partner
+                </span>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-fresherbot-primary">
+                  Navigate Your <span className="bg-fresherbot-primary/10 px-2 rounded-md">Success</span> Journey
+                </h1>
+                <p className="text-xl text-foreground/80 mb-8 max-w-lg">
+                  Connect with premier opportunities tailored for rising talent. From skill development to placement, we're with you every step of the way.
+                </p>
+                
+                <div className="flex flex-wrap gap-4">
+                  <Button 
+                    size="lg" 
+                    className="bg-fresherbot-primary text-fresherbot-darker hover:bg-fresherbot-primary/90 rounded-md px-6 py-6 text-lg"
+                    asChild
+                  >
+                    <Link to="/register">
+                      Get Started
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  </Button>
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="border-fresherbot-primary text-fresherbot-primary hover:bg-fresherbot-primary/10 rounded-md px-6 py-6 text-lg"
+                    asChild
+                  >
+                    <Link to="/programs">Explore Programs</Link>
+                  </Button>
+                </div>
               </motion.div>
               
-              <motion.h1
+              <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.7 }}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+                transition={{ delay: 0.8, duration: 0.5 }}
+                className="grid grid-cols-2 gap-6 mt-12"
               >
-                Your Career <span className="text-fresherbot-accent">Evolution</span> Starts Here
-              </motion.h1>
-              
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.7 }}
-                className="text-xl md:text-2xl mb-10 text-gray-300 max-w-xl"
-              >
-                Connecting ambitious talent with opportunities that matter. Elevate your career journey with personalized guidance and cutting-edge resources.
-              </motion.p>
-              
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.7 }}
-                className="flex flex-wrap gap-4"
-              >
-                <Button size="lg" className="bg-gradient-to-r from-fresherbot-primary to-fresherbot-secondary hover:opacity-90 text-white rounded-full px-8 py-6 text-lg" asChild>
-                  <Link to="/register">
-                    Get Started
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" className="border-2 bg-transparent border-white text-white hover:bg-white/10 rounded-full px-8 py-6 text-lg" asChild>
-                  <Link to="/about">Learn More</Link>
-                </Button>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6, duration: 0.7 }}
-                className="flex flex-wrap items-center gap-8 mt-12"
-              >
-                <div className="flex items-center gap-2">
-                  <div className="bg-fresherbot-primary/20 rounded-full p-1">
-                    <Check className="h-4 w-4 text-fresherbot-primary" />
+                {[
+                  { icon: <Users className="h-6 w-6 text-fresherbot-primary" />, stat: "10,000+", label: "Graduates" },
+                  { icon: <BriefcaseBusiness className="h-6 w-6 text-fresherbot-primary" />, stat: "500+", label: "Employer Partners" },
+                  { icon: <CheckCircle className="h-6 w-6 text-fresherbot-primary" />, stat: "97%", label: "Success Rate" },
+                  { icon: <GraduationCap className="h-6 w-6 text-fresherbot-primary" />, stat: "250+", label: "College Partners" }
+                ].map((item, index) => (
+                  <div 
+                    key={index} 
+                    className="flex items-center p-3 border border-fresherbot-primary/20 rounded-lg bg-fresherbot-darker/50 backdrop-blur-sm"
+                  >
+                    <div className="p-2 bg-fresherbot-primary/10 rounded-full mr-3">{item.icon}</div>
+                    <div>
+                      <p className="text-xl font-bold text-fresherbot-primary">{item.stat}</p>
+                      <p className="text-sm text-foreground/70">{item.label}</p>
+                    </div>
                   </div>
-                  <span className="text-gray-300">97% Success Rate</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="bg-fresherbot-secondary/20 rounded-full p-1">
-                    <Check className="h-4 w-4 text-fresherbot-secondary" />
-                  </div>
-                  <span className="text-gray-300">500+ Corporate Partners</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="bg-fresherbot-accent/20 rounded-full p-1">
-                    <Check className="h-4 w-4 text-fresherbot-accent" />
-                  </div>
-                  <span className="text-gray-300">10,000+ Career Launches</span>
-                </div>
+                ))}
               </motion.div>
             </motion.div>
             
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7 }}
-              className="order-1 lg:order-2 relative"
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="lg:col-span-6 relative"
             >
-              <div className="aspect-square lg:aspect-auto lg:h-[600px] rounded-3xl overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-fresherbot-primary/30 to-fresherbot-secondary/30 mix-blend-overlay"></div>
-                <img 
-                  src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-                  alt="Indian tech professionals collaborating" 
-                  className="object-cover h-full w-full"
-                />
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-fresherbot-primary/10 to-fresherbot-primary/5 rounded-3xl transform rotate-3"></div>
+              <div className="absolute inset-0 bg-gradient-to-l from-fresherbot-primary/10 to-fresherbot-primary/5 rounded-3xl transform -rotate-3"></div>
               
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 max-w-[200px]"
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <Award className="h-8 w-8 text-fresherbot-primary" />
-                  <div className="text-lg font-bold text-gray-800">10,000+</div>
-                </div>
-                <div className="text-sm text-gray-600">FresherBot graduates working in top companies</div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: -30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="absolute -top-6 -right-6 bg-gradient-to-r from-fresherbot-primary to-fresherbot-secondary rounded-2xl shadow-xl p-4 max-w-[220px]"
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <Users className="h-8 w-8 text-white" />
-                  <div className="text-lg font-bold text-white">500+</div>
-                </div>
-                <div className="text-sm text-white/90">Hiring partners actively recruiting</div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Features Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r from-fresherbot-primary/10 to-fresherbot-secondary/10 text-fresherbot-primary mb-4 inline-block">
-                Why Choose FresherBot
-              </span>
-              <h2 className="text-4xl font-bold mb-5">Comprehensive Career Support System</h2>
-              <p className="text-xl text-gray-600">
-                We provide end-to-end solutions for students, colleges, and employers to create a seamless talent ecosystem.
-              </p>
-            </motion.div>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Zap className="h-8 w-8 text-white" />,
-                title: "Accelerated Learning",
-                description: "Industry-aligned curriculum designed to fast-track your skill development and career readiness.",
-                color: "from-fresherbot-primary to-fresherbot-secondary"
-              },
-              {
-                icon: <Shield className="h-8 w-8 text-white" />,
-                title: "Placement Assurance",
-                description: "Our network of 500+ corporate partners ensures opportunities aligned with your career goals.",
-                color: "from-fresherbot-secondary to-fresherbot-accent"
-              },
-              {
-                icon: <Target className="h-8 w-8 text-white" />,
-                title: "Personalized Guidance",
-                description: "One-on-one mentorship from industry experts to navigate your unique career path.",
-                color: "from-fresherbot-accent to-fresherbot-info"
-              },
-              {
-                icon: <Coffee className="h-8 w-8 text-white" />,
-                title: "Skill Enhancement",
-                description: "Practical workshops and projects that build both technical and soft skills employers value.",
-                color: "from-fresherbot-info to-fresherbot-success"
-              },
-              {
-                icon: <Users className="h-8 w-8 text-white" />,
-                title: "Community Support",
-                description: "Join our thriving community of professionals and peers for networking and growth.",
-                color: "from-fresherbot-success to-fresherbot-warning"
-              },
-              {
-                icon: <Award className="h-8 w-8 text-white" />,
-                title: "Industry Recognition",
-                description: "Credentials and certifications that are respected and recognized across industries.",
-                color: "from-fresherbot-warning to-fresherbot-primary"
-              },
-            ].map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative group"
-              >
-                <div className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden group-hover:shadow-xl transition-all duration-300 h-full">
-                  <div className={`h-3 bg-gradient-to-r ${feature.color}`}></div>
-                  <div className="p-8">
-                    <div className={`bg-gradient-to-r ${feature.color} rounded-xl w-14 h-14 flex items-center justify-center mb-5`}>
-                      {feature.icon}
-                    </div>
-                    <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                    <p className="text-gray-600">{feature.description}</p>
-                    <div className="mt-6">
-                      <Link to="/services" className="inline-flex items-center text-fresherbot-primary font-medium hover:text-fresherbot-secondary">
-                        Learn more <ChevronRight className="ml-1 h-4 w-4" />
-                      </Link>
-                    </div>
+              <div className="relative bg-fresherbot-dark border border-fresherbot-primary/30 rounded-3xl p-6 shadow-xl overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-fresherbot-primary/10 rounded-full filter blur-xl transform translate-x-10 -translate-y-10"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-fresherbot-primary/10 rounded-full filter blur-xl transform -translate-x-10 translate-y-10"></div>
+                
+                <div className="grid gap-8">
+                  <div className="p-4 bg-fresherbot-darker border border-fresherbot-primary/20 rounded-xl">
+                    <h3 className="flex items-center font-semibold text-fresherbot-primary mb-3">
+                      <Rocket className="h-5 w-5 mr-2" /> Fast-Track Programs
+                    </h3>
+                    <p className="text-foreground/80">Accelerate your career with our industry-aligned programs designed for rapid skill development.</p>
+                  </div>
+                  
+                  <div className="p-4 bg-fresherbot-darker border border-fresherbot-primary/20 rounded-xl">
+                    <h3 className="flex items-center font-semibold text-fresherbot-primary mb-3">
+                      <Users className="h-5 w-5 mr-2" /> Dedicated Mentorship
+                    </h3>
+                    <p className="text-foreground/80">One-on-one guidance from industry experts who are invested in your success journey.</p>
+                  </div>
+                  
+                  <div className="p-4 bg-fresherbot-darker border border-fresherbot-primary/20 rounded-xl">
+                    <h3 className="flex items-center font-semibold text-fresherbot-primary mb-3">
+                      <BarChart className="h-5 w-5 mr-2" /> Placement Assistance
+                    </h3>
+                    <p className="text-foreground/80">Direct connections with hiring partners actively seeking fresh talent like yours.</p>
                   </div>
                 </div>
-              </motion.div>
-            ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
       
+      {/* Featured Programs */}
+      <FeaturedPrograms />
+      
+      {/* Statistics Section */}
+      <StatisticsSection />
+      
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-fresherbot-dark/95 to-black text-white">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <span className="px-4 py-1.5 mb-5 bg-white/10 rounded-full text-sm font-medium border border-white/20 inline-block">
-                Start Your Journey Today
-              </span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Accelerate Your Career Growth?</h2>
-              <p className="text-xl mb-10 text-gray-300 max-w-xl">
-                Join thousands of successful professionals who launched their careers with FresherBot's comprehensive support system.
-              </p>
-              
-              <div className="space-y-6 mb-8">
-                {[
-                  "Access to premium job opportunities",
-                  "Industry-aligned skill development",
-                  "One-on-one career mentorship",
-                  "Networking with top employers",
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
-                    className="flex items-start gap-3"
-                  >
-                    <div className="mt-1 bg-gradient-to-r from-fresherbot-primary to-fresherbot-secondary rounded-full p-1">
-                      <Check className="h-4 w-4 text-white" />
-                    </div>
-                    <span>{item}</span>
-                  </motion.div>
-                ))}
-              </div>
-              
-              <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="bg-white text-fresherbot-dark hover:bg-gray-100 rounded-full px-8 py-6 text-lg" asChild>
-                  <Link to="/register">
-                    Register Now
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" className="border-2 bg-transparent border-white text-white hover:bg-white/10 rounded-full px-8 py-6 text-lg" asChild>
-                  <Link to="/contact">Contact Us</Link>
-                </Button>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="relative"
-            >
-              <div className="rounded-3xl overflow-hidden relative aspect-video lg:aspect-square shadow-2xl border border-white/10">
-                <div className="absolute inset-0 bg-gradient-to-tr from-fresherbot-primary/30 to-fresherbot-accent/30 mix-blend-overlay"></div>
-                <img 
-                  src="https://images.unsplash.com/photo-1537511446984-935f663eb1f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-                  alt="Indian tech team collaborating" 
-                  className="object-cover h-full w-full"
-                />
-              </div>
-              
-              <div className="absolute -bottom-8 -right-8 bg-white text-gray-800 rounded-2xl shadow-xl p-6 max-w-xs">
-                <div className="font-bold text-xl mb-2">Join 10,000+ Success Stories</div>
-                <p className="text-gray-600 mb-4">Our proven track record speaks for itself with a 97% success rate.</p>
-                <Link to="/testimonials" className="text-fresherbot-primary font-medium hover:text-fresherbot-secondary flex items-center">
-                  Read success stories <ChevronRight className="ml-1 h-4 w-4" />
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <CTASection />
       
       <Footer />
     </div>

@@ -64,10 +64,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				fresherbot: {
-					primary: '#6366f1',     // Indigo
-					secondary: '#8b5cf6',   // Violet
-					accent: '#ec4899',      // Pink
-					dark: '#1e293b',        // Slate-800
+					primary: '#FFD700',     // Gold Yellow
+					secondary: '#FFC107',   // Amber
+					accent: '#FFEB3B',      // Light Yellow
+					dark: '#121212',        // Very Dark Gray (almost black)
+					darker: '#0A0A0A',      // Almost Pure Black
 					light: '#f8fafc',       // Slate-50
 					success: '#10b981',     // Emerald-500
 					warning: '#f59e0b',     // Amber-500
@@ -103,7 +104,7 @@ export default {
 				},
 				'blink': {
 					'0%, 100%': { borderColor: 'transparent' },
-					'50%': { borderColor: 'hsl(var(--foreground))' },
+					'50%': { borderColor: '#FFD700' },
 				},
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
@@ -125,7 +126,7 @@ export default {
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-				'mesh-gradient': 'linear-gradient(45deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 50%, rgba(236, 72, 153, 0.1) 100%)'
+				'mesh-gradient': 'linear-gradient(45deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 193, 7, 0.15) 50%, rgba(255, 235, 59, 0.15) 100%)'
 			}
 		}
 	},
