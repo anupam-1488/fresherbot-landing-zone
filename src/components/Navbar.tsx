@@ -89,16 +89,32 @@ const Navbar = () => {
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                        <ListItem href="/features/assessments" title="Assessments">
+                        <ListItem 
+                          href="/features/assessments" 
+                          title="Assessments" 
+                          className=""
+                        >
                           Create custom assessments for any role
                         </ListItem>
-                        <ListItem href="/features/proctoring" title="Proctoring">
+                        <ListItem 
+                          href="/features/proctoring" 
+                          title="Proctoring" 
+                          className=""
+                        >
                           Advanced anti-cheating techniques
                         </ListItem>
-                        <ListItem href="/features/analytics" title="Analytics">
+                        <ListItem 
+                          href="/features/analytics" 
+                          title="Analytics" 
+                          className=""
+                        >
                           Get detailed insights on candidate performance
                         </ListItem>
-                        <ListItem href="/features/integrations" title="Integrations">
+                        <ListItem 
+                          href="/features/integrations" 
+                          title="Integrations" 
+                          className=""
+                        >
                           Connect with your existing tools
                         </ListItem>
                       </ul>
@@ -111,16 +127,32 @@ const Navbar = () => {
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                        <ListItem href="/roles/tech" title="Tech Roles">
+                        <ListItem 
+                          href="/roles/tech" 
+                          title="Tech Roles" 
+                          className=""
+                        >
                           Developers, designers, and more
                         </ListItem>
-                        <ListItem href="/roles/sales" title="Sales Roles">
+                        <ListItem 
+                          href="/roles/sales" 
+                          title="Sales Roles" 
+                          className=""
+                        >
                           Sales, marketing, and customer support
                         </ListItem>
-                        <ListItem href="/roles/operations" title="Operations">
+                        <ListItem 
+                          href="/roles/operations" 
+                          title="Operations" 
+                          className=""
+                        >
                           Operations, finance, and HR
                         </ListItem>
-                        <ListItem href="/roles/leadership" title="Leadership">
+                        <ListItem 
+                          href="/roles/leadership" 
+                          title="Leadership" 
+                          className=""
+                        >
                           Management and executive positions
                         </ListItem>
                       </ul>
@@ -139,13 +171,25 @@ const Navbar = () => {
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <ul className="grid w-[400px] gap-3 p-4">
-                        <ListItem href="/resources/blog" title="Blog">
+                        <ListItem 
+                          href="/resources/blog" 
+                          title="Blog" 
+                          className=""
+                        >
                           Latest articles and updates
                         </ListItem>
-                        <ListItem href="/resources/guides" title="Guides">
+                        <ListItem 
+                          href="/resources/guides" 
+                          title="Guides" 
+                          className=""
+                        >
                           How-to guides and tutorials
                         </ListItem>
-                        <ListItem href="/resources/case-studies" title="Case Studies">
+                        <ListItem 
+                          href="/resources/case-studies" 
+                          title="Case Studies" 
+                          className=""
+                        >
                           Success stories from our customers
                         </ListItem>
                       </ul>
@@ -162,10 +206,18 @@ const Navbar = () => {
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <ul className="grid w-[400px] gap-3 p-4">
-                        <ListItem href="/customers/testimonials" title="Testimonials">
+                        <ListItem 
+                          href="/customers/testimonials" 
+                          title="Testimonials" 
+                          className=""
+                        >
                           What our customers say about us
                         </ListItem>
-                        <ListItem href="/customers/partners" title="Partners">
+                        <ListItem 
+                          href="/customers/partners" 
+                          title="Partners" 
+                          className=""
+                        >
                           Our technology and integration partners
                         </ListItem>
                       </ul>
