@@ -30,7 +30,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="w-full bg-white py-16 md:py-20 overflow-hidden">
+    <section className="w-full py-16 md:py-20 overflow-hidden" style={{ backgroundColor: "#E0EDF4" }}>
       <div className="container mx-auto px-4">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
           {/* Left Content */}
@@ -97,9 +97,9 @@ const Hero = () => {
           >
             <div className="relative">
               <img 
-                src="/lovable-uploads/9e2913fa-7efe-4808-bd81-f0839496620f.png" 
-                alt="Candidate screening illustration" 
-                className="w-full h-auto"
+                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" 
+                alt="Team collaboration on laptops" 
+                className="w-full h-auto rounded-lg shadow-xl"
               />
             </div>
           </motion.div>

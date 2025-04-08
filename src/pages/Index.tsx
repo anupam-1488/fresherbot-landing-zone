@@ -16,15 +16,17 @@ const Index = () => {
     // Add padding to body to account for fixed navbar
     document.body.style.paddingTop = "64px";
     document.documentElement.style.scrollBehavior = "smooth";
+    document.body.style.backgroundColor = "#E0EDF4";
     
     return () => {
       document.documentElement.style.scrollBehavior = "";
       document.body.style.paddingTop = "0";
+      document.body.style.backgroundColor = "";
     };
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#E0EDF4" }}>
       <Navbar />
       
       {/* Hero Section */}
