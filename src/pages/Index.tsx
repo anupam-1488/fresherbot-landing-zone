@@ -7,7 +7,7 @@ import TrustedBy from "@/components/TrustedBy";
 import Features from "@/components/Features";
 import Competitors from "@/components/Competitors";
 import HowWeDoIt from "@/components/HowWeDoIt";
-import Testimonials from "@/components/Testimonials";
+import { Testimonials } from "@/components/Testimonials";
 import CTASection from "@/components/CTASection";
 
 const Index = () => {
