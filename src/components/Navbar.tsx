@@ -2,8 +2,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useState, useEffect } from "react";
-import { Menu, BookOpen, Code, Briefcase, Building, GraduationCap } from "lucide-react";
+import { useState } from "react";
+import { Menu, ChevronDown } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -18,57 +18,6 @@ import logo from "/Images/fresherbot_logo_dark.png";
 const Navbar = () => {
   const isMobile = useIsMobile();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-
-  // Custom cursor effect
-  useEffect(() => {
-    const moveCursor = (e: MouseEvent) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
-    };
-
-    const handleMouseOver = () => setIsHovering(true);
-    const handleMouseOut = () => setIsHovering(false);
-    
-    document.addEventListener('mousemove', moveCursor);
-    
-    const interactiveElements = document.querySelectorAll('a, button, [role="button"]');
-    interactiveElements.forEach(element => {
-      element.addEventListener('mouseover', handleMouseOver);
-      element.addEventListener('mouseout', handleMouseOut);
-    });
-    
-    // Create cursor element
-    const cursor = document.createElement('div');
-    cursor.classList.add('custom-cursor');
-    document.body.appendChild(cursor);
-    
-    return () => {
-      document.removeEventListener('mousemove', moveCursor);
-      interactiveElements.forEach(element => {
-        element.removeEventListener('mouseover', handleMouseOver);
-        element.removeEventListener('mouseout', handleMouseOut);
-      });
-      
-      document.body.removeChild(cursor);
-    };
-  }, []);
-
-  // Update cursor position and state
-  useEffect(() => {
-    const cursor = document.querySelector('.custom-cursor');
-    if (cursor) {
-      const cursorEl = cursor as HTMLElement;
-      cursorEl.style.left = `${cursorPosition.x}px`;
-      cursorEl.style.top = `${cursorPosition.y}px`;
-      
-      if (isHovering) {
-        cursor.classList.add('hovering');
-      } else {
-        cursor.classList.remove('hovering');
-      }
-    }
-  }, [cursorPosition, isHovering]);
 
   const ListItem = ({ className, title, href, children }) => {
     return (
@@ -77,12 +26,12 @@ const Navbar = () => {
           <Link
             to={href}
             className={cn(
-              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-fresherbot-primary/10 hover:text-fresherbot-primary focus:bg-fresherbot-primary/10 focus:text-fresherbot-primary",
+              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 hover:text-slate-900 focus:bg-slate-100 focus:text-slate-900",
               className
             )}
           >
             <div className="text-sm font-medium leading-none">{title}</div>
-            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            <p className="line-clamp-2 text-sm leading-snug text-slate-500">
               {children}
             </p>
           </Link>
@@ -92,140 +41,145 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full bg-fresherbot-darker shadow-sm py-6 fixed top-0 left-0 right-0 z-50 border-b border-fresherbot-primary/20">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="flex items-center">
-          <Link to="/" className="flex items-center">
-            <img src={logo} alt="Fresherbot Logo" />
-          </Link>
-        </div>
-        
-        {isMobile ? (
-          <>
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle menu"
-            >
-              <Menu className="h-6 w-6" />
-            </Button>
-            
-            {menuOpen && (
-              <div className="absolute top-16 right-0 left-0 bg-fresherbot-dark shadow-md py-4 px-4 border-b border-fresherbot-primary/20">
-                <div className="flex flex-col space-y-3">
-                  <div className="px-4 py-2">
-                    <p className="font-medium flex items-center text-fresherbot-primary"><BookOpen className="h-4 w-4 mr-2" /> For Candidate</p>
-                    <div className="ml-4 mt-1 space-y-1">
-                      <Link to="/candidate/blog" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Blog</Link>
-                      <Link to="/candidate/programs" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Programs</Link>
-                      <Link to="/candidate/internships" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Internships</Link>
+    <nav className="w-full bg-white py-4 fixed top-0 left-0 right-0 z-50 shadow-sm">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center">
+            <Link to="/" className="flex items-center">
+              <img src={logo} alt="FresherBot Logo" className="h-8" />
+            </Link>
+          </div>
+          
+          {isMobile ? (
+            <>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Toggle menu"
+              >
+                <Menu className="h-6 w-6" />
+              </Button>
+              
+              {menuOpen && (
+                <div className="absolute top-16 right-0 left-0 bg-white shadow-md py-4 px-4 border-t border-gray-100">
+                  <div className="flex flex-col space-y-3">
+                    <Link to="/features" className="px-3 py-2 hover:bg-slate-100 rounded">Features</Link>
+                    <Link to="/roles" className="px-3 py-2 hover:bg-slate-100 rounded">Roles</Link>
+                    <Link to="/pricing" className="px-3 py-2 hover:bg-slate-100 rounded">Pricing</Link>
+                    <Link to="/resources" className="px-3 py-2 hover:bg-slate-100 rounded">Resources</Link>
+                    <Link to="/customers" className="px-3 py-2 hover:bg-slate-100 rounded">Customers</Link>
+                    
+                    <div className="pt-2 border-t border-gray-100">
+                      <Button className="w-full bg-indigo-700 hover:bg-indigo-800 text-white" asChild>
+                        <Link to="/register">Register</Link>
+                      </Button>
                     </div>
-                  </div>
-                  
-                  <div className="px-4 py-2">
-                    <p className="font-medium flex items-center text-fresherbot-primary"><Building className="h-4 w-4 mr-2" /> For Employer</p>
-                    <div className="ml-4 mt-1 space-y-1">
-                      <Link to="/employer/hiring-assessments" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Hiring Assessments</Link>
-                      <Link to="/employer/hackathon" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Hackathon</Link>
-                      <Link to="/employer/campus-hiring" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Campus Hiring</Link>
-                    </div>
-                  </div>
-                  
-                  <div className="px-4 py-2">
-                    <p className="font-medium flex items-center text-fresherbot-primary"><GraduationCap className="h-4 w-4 mr-2" /> For College</p>
-                    <div className="ml-4 mt-1 space-y-1">
-                      <Link to="/college/lms" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">LMS</Link>
-                      <Link to="/college/crt" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">CRT</Link>
-                      <Link to="/college/hrcc" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">HRCC</Link>
-                    </div>
-                  </div>
-                  
-                  <div className="border-t border-fresherbot-primary/20 pt-2 flex flex-col space-y-2">
-                    <Button variant="outline" className="border-fresherbot-primary text-fresherbot-primary hover:bg-fresherbot-primary/10" asChild>
-                      <Link to="/login">Login</Link>
-                    </Button>
-                    <Button className="bg-fresherbot-primary text-fresherbot-dark hover:bg-fresherbot-primary/90" asChild>
-                      <Link to="/register">Register</Link>
-                    </Button>
                   </div>
                 </div>
-              </div>
-            )}
-          </>
-        ) : (
-          <div className="flex items-center space-x-6">
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="flex items-center text-foreground hover:text-fresherbot-primary">
-                    <BookOpen className="h-4 w-4 mr-1" /> For Candidate
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-3 bg-fresherbot-dark border border-fresherbot-primary/20">
-                      <ListItem href="/candidate/blog" title="Blog" className="">
-                        Read our latest articles and updates.
-                      </ListItem>
-                      <ListItem href="/candidate/programs" title="Programs" className="">
-                        Explore our training programs.
-                      </ListItem>
-                      <ListItem href="/candidate/internships" title="Internships" className="">
-                        Find the right internship opportunity.
-                      </ListItem>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="flex items-center text-foreground hover:text-fresherbot-primary">
-                    <Building className="h-4 w-4 mr-1" /> For Employer
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-3 bg-fresherbot-dark border border-fresherbot-primary/20">
-                      <ListItem href="/employer/hiring-assessments" title="Hiring Assessments" className="">
-                        Assess candidates effectively.
-                      </ListItem>
-                      <ListItem href="/employer/hackathon" title="Hackathon" className="">
-                        Organize hackathons to find top talent.
-                      </ListItem>
-                      <ListItem href="/employer/campus-hiring" title="Campus Hiring" className="">
-                        Connect with universities for recruitment.
-                      </ListItem>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="flex items-center text-foreground hover:text-fresherbot-primary">
-                    <GraduationCap className="h-4 w-4 mr-1" /> For College
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-3 bg-fresherbot-dark border border-fresherbot-primary/20">
-                      <ListItem href="/college/lms" title="LMS" className="">
-                        Learning Management System solutions.
-                      </ListItem>
-                      <ListItem href="/college/crt" title="CRT" className="">
-                        Campus Recruitment Training.
-                      </ListItem>
-                      <ListItem href="/college/hrcc" title="HRCC" className="">
-                        Human Resource Career Center.
-                      </ListItem>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            
-            <div className="flex space-x-2">
-              <Button variant="outline" className="border-2 border-fresherbot-primary text-fresherbot-primary hover:bg-fresherbot-primary/10" asChild>
-                <Link to="/login">Login</Link>
-              </Button>
-              <Button className="bg-fresherbot-primary text-fresherbot-dark hover:bg-fresherbot-primary/90 shadow-md" asChild>
-                <Link to="/register">Register</Link>
+              )}
+            </>
+          ) : (
+            <div className="flex items-center space-x-1">
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-slate-700 hover:text-slate-900 bg-transparent">
+                      Features <ChevronDown className="h-4 w-4" />
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                        <ListItem href="/features/assessments" title="Assessments">
+                          Create custom assessments for any role
+                        </ListItem>
+                        <ListItem href="/features/proctoring" title="Proctoring">
+                          Advanced anti-cheating techniques
+                        </ListItem>
+                        <ListItem href="/features/analytics" title="Analytics">
+                          Get detailed insights on candidate performance
+                        </ListItem>
+                        <ListItem href="/features/integrations" title="Integrations">
+                          Connect with your existing tools
+                        </ListItem>
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-slate-700 hover:text-slate-900 bg-transparent">
+                      Roles <ChevronDown className="h-4 w-4" />
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                        <ListItem href="/roles/tech" title="Tech Roles">
+                          Developers, designers, and more
+                        </ListItem>
+                        <ListItem href="/roles/sales" title="Sales Roles">
+                          Sales, marketing, and customer support
+                        </ListItem>
+                        <ListItem href="/roles/operations" title="Operations">
+                          Operations, finance, and HR
+                        </ListItem>
+                        <ListItem href="/roles/leadership" title="Leadership">
+                          Management and executive positions
+                        </ListItem>
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+
+              <Link to="/pricing" className="px-3 py-2 text-slate-700 hover:text-slate-900">Pricing</Link>
+              
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-slate-700 hover:text-slate-900 bg-transparent">
+                      Resources <ChevronDown className="h-4 w-4" />
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid w-[400px] gap-3 p-4">
+                        <ListItem href="/resources/blog" title="Blog">
+                          Latest articles and updates
+                        </ListItem>
+                        <ListItem href="/resources/guides" title="Guides">
+                          How-to guides and tutorials
+                        </ListItem>
+                        <ListItem href="/resources/case-studies" title="Case Studies">
+                          Success stories from our customers
+                        </ListItem>
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-slate-700 hover:text-slate-900 bg-transparent">
+                      Customers <ChevronDown className="h-4 w-4" />
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid w-[400px] gap-3 p-4">
+                        <ListItem href="/customers/testimonials" title="Testimonials">
+                          What our customers say about us
+                        </ListItem>
+                        <ListItem href="/customers/partners" title="Partners">
+                          Our technology and integration partners
+                        </ListItem>
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+              
+              <Button className="ml-4 bg-indigo-700 hover:bg-indigo-800 text-white px-5 py-2 rounded-full" asChild>
+                <Link to="/register">Recruiter Signup →</Link>
               </Button>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </nav>
   );
