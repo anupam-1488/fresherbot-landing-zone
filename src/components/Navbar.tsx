@@ -41,7 +41,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full bg-white py-4 fixed top-0 left-0 right-0 z-50 shadow-sm">
+    <nav className="w-full bg-white py-3 fixed top-0 left-0 right-0 z-50 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
@@ -71,7 +71,7 @@ const Navbar = () => {
                     <Link to="/customers" className="px-3 py-2 hover:bg-slate-100 rounded">Customers</Link>
                     
                     <div className="pt-2 border-t border-gray-100">
-                      <Button className="w-full bg-indigo-700 hover:bg-indigo-800 text-white" asChild>
+                      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white" asChild>
                         <Link to="/register">Register</Link>
                       </Button>
                     </div>
@@ -84,11 +84,11 @@ const Navbar = () => {
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-slate-700 hover:text-slate-900 bg-transparent">
+                    <NavigationMenuTrigger className="text-slate-700 hover:text-blue-600 bg-transparent">
                       Features <ChevronDown className="h-4 w-4" />
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white">
                         <ListItem 
                           href="/features/assessments" 
                           title="Assessments" 
@@ -122,11 +122,11 @@ const Navbar = () => {
                   </NavigationMenuItem>
 
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-slate-700 hover:text-slate-900 bg-transparent">
+                    <NavigationMenuTrigger className="text-slate-700 hover:text-blue-600 bg-transparent">
                       Roles <ChevronDown className="h-4 w-4" />
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white">
                         <ListItem 
                           href="/roles/tech" 
                           title="Tech Roles" 
@@ -161,16 +161,16 @@ const Navbar = () => {
                 </NavigationMenuList>
               </NavigationMenu>
 
-              <Link to="/pricing" className="px-3 py-2 text-slate-700 hover:text-slate-900">Pricing</Link>
+              <Link to="/pricing" className="px-3 py-2 text-slate-700 hover:text-blue-600">Pricing</Link>
               
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-slate-700 hover:text-slate-900 bg-transparent">
+                    <NavigationMenuTrigger className="text-slate-700 hover:text-blue-600 bg-transparent">
                       Resources <ChevronDown className="h-4 w-4" />
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <ul className="grid w-[400px] gap-3 p-4">
+                      <ul className="grid w-[400px] gap-3 p-4 bg-white">
                         <ListItem 
                           href="/resources/blog" 
                           title="Blog" 
@@ -201,11 +201,11 @@ const Navbar = () => {
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-slate-700 hover:text-slate-900 bg-transparent">
+                    <NavigationMenuTrigger className="text-slate-700 hover:text-blue-600 bg-transparent">
                       Customers <ChevronDown className="h-4 w-4" />
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <ul className="grid w-[400px] gap-3 p-4">
+                      <ul className="grid w-[400px] gap-3 p-4 bg-white">
                         <ListItem 
                           href="/customers/testimonials" 
                           title="Testimonials" 
@@ -226,7 +226,7 @@ const Navbar = () => {
                 </NavigationMenuList>
               </NavigationMenu>
               
-              <Button className="ml-4 bg-indigo-700 hover:bg-indigo-800 text-white px-5 py-2 rounded-full" asChild>
+              <Button className="ml-4 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md" asChild>
                 <Link to="/register">Recruiter Signup →</Link>
               </Button>
             </div>

@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 221 83% 53%;
+    --primary: 217 91% 60%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -87,11 +87,11 @@
   }
   
   .btn-primary {
-    @apply bg-indigo-700 hover:bg-indigo-800 text-white transition-all shadow-md hover:shadow-lg rounded-full;
+    @apply bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-md hover:shadow-lg rounded-md;
   }
   
   .btn-outline {
-    @apply border-2 border-slate-300 text-slate-700 hover:bg-slate-100 transition-all rounded-full;
+    @apply border-2 border-slate-300 text-slate-700 hover:bg-slate-100 transition-all rounded-md;
   }
 }
 
@@ -102,7 +102,7 @@
 
 /* Modern card styles */
 .glass-card {
-  @apply bg-white/60 backdrop-blur-md border border-slate-200 rounded-3xl shadow-xl;
+  @apply bg-white/80 backdrop-blur-md border border-slate-200 rounded-xl shadow-md;
 }
 
 /* Animation styles */
@@ -121,4 +121,19 @@
 
 .responsive-subheading {
   @apply text-xl md:text-2xl font-semibold;
+}
+
+/* Add gradient style */
+.bg-blue-gradient {
+  @apply bg-gradient-to-r from-blue-500 to-indigo-600;
+}
+
+/* Feature section styles */
+.feature-card {
+  @apply p-6 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all duration-300;
+}
+
+/* Custom border styles */
+.border-bottom-highlight {
+  @apply border-b-2 border-blue-500;
 }

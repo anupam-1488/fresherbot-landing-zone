@@ -6,6 +6,9 @@ import { useEffect } from "react";
 import TrustedBy from "@/components/TrustedBy";
 import Features from "@/components/Features";
 import Competitors from "@/components/Competitors";
+import HowWeDoIt from "@/components/HowWeDoIt";
+import Testimonials from "@/components/Testimonials";
+import CTASection from "@/components/CTASection";
 
 const Index = () => {
   useEffect(() => {
@@ -33,8 +36,17 @@ const Index = () => {
       {/* Features Section */}
       <Features />
       
+      {/* How We Do It */}
+      <HowWeDoIt />
+      
+      {/* Testimonials */}
+      <Testimonials />
+      
       {/* Competitors Section */}
       <Competitors />
+      
+      {/* CTA Section */}
+      <CTASection />
       
       <Footer />
     </div>
