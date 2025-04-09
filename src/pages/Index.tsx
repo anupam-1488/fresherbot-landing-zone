@@ -10,13 +10,14 @@ import HowWeDoIt from "@/components/HowWeDoIt";
 import { Testimonials } from "@/components/Testimonials";
 import CTASection from "@/components/CTASection";
 import BottomNav from "@/components/BottomNav";
+import DownloadBanner from "@/components/DownloadBanner";
 import { motion } from "framer-motion";
 
 const Index = () => {
   useEffect(() => {
     document.title = "FresherBot - Launch Your Career Journey";
-    // Add padding to body to account for fixed navbar
-    document.body.style.paddingTop = "64px";
+    // Add padding to body to account for fixed navbar and download banner
+    document.body.style.paddingTop = "96px"; // Increased to account for download banner
     document.documentElement.style.scrollBehavior = "smooth";
     document.body.style.backgroundColor = "#E0EDF4";
     
@@ -40,12 +41,52 @@ const Index = () => {
     }
   };
 
+  // Staggered animation variants for sections
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#E0EDF4" }}>
+      <DownloadBanner />
       <Navbar />
       
       {/* Hero Section */}
       <Hero />
+      
+      {/* Animated Floating Shapes */}
+      <div className="relative overflow-hidden">
+        <motion.div 
+          className="absolute top-20 left-10 w-32 h-32 rounded-full bg-blue-200/30 blur-3xl"
+          animate={{
+            x: [0, 50, 0],
+            y: [0, 30, 0],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute top-60 right-20 w-40 h-40 rounded-full bg-blue-400/20 blur-3xl"
+          animate={{
+            x: [0, -70, 0],
+            y: [0, 50, 0],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+      </div>
       
       {/* Trusted By Companies */}
       <motion.div
@@ -57,12 +98,12 @@ const Index = () => {
         <TrustedBy />
       </motion.div>
       
-      {/* Features Section */}
+      {/* Features Section with staggered animations */}
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        variants={fadeInUp}
+        variants={staggerContainer}
       >
         <Features />
       </motion.div>
