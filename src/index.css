@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -73,7 +75,8 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
   }
 }
 
@@ -125,7 +128,7 @@
 
 /* Add gradient style */
 .bg-blue-gradient {
-  @apply bg-gradient-to-r from-blue-500 to-indigo-600;
+  @apply bg-gradient-to-r from-blue-500 to-blue-600;
 }
 
 /* Feature section styles */
@@ -136,4 +139,23 @@
 /* Custom border styles */
 .border-bottom-highlight {
   @apply border-b-2 border-blue-500;
+}
+
+/* Add padding to account for the bottom nav */
+.pb-bottom-nav {
+  padding-bottom: 80px;
+}
+
+/* Animation classes */
+.hover-scale {
+  @apply transition-transform hover:scale-105 duration-300;
+}
+
+.hover-lift {
+  @apply transition-all hover:-translate-y-1 duration-300;
+}
+
+/* Font utilities */
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
 }
