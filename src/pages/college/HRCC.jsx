@@ -171,9 +171,9 @@ const HRCC = () => {
           </Carousel>
         </div>
 
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 py-12 bg-white">
           <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-4"style={{color: 'rgb(3 105 161)'}}>About HRCC</h2>
+            <h2 className="text-3xl font-bold mb-4" style={{color: 'rgb(3 105 161)'}}>About HRCC</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div>
                 <p className="text-lg mb-4">
@@ -374,7 +374,7 @@ const HRCC = () => {
           </div>
 
           <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-6"style={{color: 'rgb(3 105 161)'}}  >Success Stories</h2>
+            <h2 className="text-3xl font-bold mb-6" style={{color: 'rgb(3 105 161)'}}>Success Stories</h2>
             <Carousel className="w-full">
               <CarouselContent>
                 <CarouselItem className="md:basis-1/2 lg:basis-1/3">
