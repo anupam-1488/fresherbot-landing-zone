@@ -53,8 +53,9 @@ const Hero = () => {
   ];
 
   return (
-    <section className="w-full pt-28 pb-16 overflow-hidden">
-      <div className="flex flex-col lg:flex-row h-[70vh]">
+    <section className="w-full pb-16 overflow-hidden">
+      {/* Full Screen Hero Section */}
+      <div className="flex flex-col lg:flex-row h-screen">
         {/* Left Text Content - Dark Side */}
         <div className="w-full lg:w-1/2 bg-gradient-to-r from-burgundy-950 to-burgundy-800 text-left px-4 md:px-10 lg:px-16 flex flex-col justify-center">
           <div className="max-w-xl">
@@ -138,7 +139,7 @@ const Hero = () => {
           className="w-full lg:w-1/2 h-full relative bg-beige-50"
         >
           <img 
-            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" 
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80" 
             alt="FresherBot Career Dashboard" 
             className="w-full h-full object-cover"
           />
@@ -190,7 +191,7 @@ const Hero = () => {
       </div>
       
       {/* Stats Section */}
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 bg-beige-50">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

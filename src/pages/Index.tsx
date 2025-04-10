@@ -16,8 +16,8 @@ import { motion } from "framer-motion";
 const Index = () => {
   useEffect(() => {
     document.title = "FresherBot - Launch Your Career Journey";
-    // Add padding to body to account for fixed navbar and download banner
-    document.body.style.paddingTop = "0"; // No padding needed as we want hero to be full height
+    // Remove any padding to enable full-screen hero
+    document.body.style.paddingTop = "0";
     document.documentElement.style.scrollBehavior = "smooth";
     document.body.style.backgroundColor = "#3D0C11"; // Dark burgundy background
     
@@ -53,17 +53,14 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-burgundy-950 via-burgundy-900 to-burgundy-800">
+    <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      {/* Entrepreneur Banner */}
-      <EntrepreneurBanner />
-      
-      {/* Hero Section */}
+      {/* Full screen Hero Section */}
       <Hero />
       
       {/* Animated Floating Shapes */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden bg-beige-50">
         <motion.div 
           className="absolute top-20 left-10 w-32 h-32 rounded-full bg-burgundy-500/10 blur-3xl"
           animate={{
@@ -108,6 +105,7 @@ const Index = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer}
+          className="bg-beige-50"
         >
           <Features />
         </motion.div>
