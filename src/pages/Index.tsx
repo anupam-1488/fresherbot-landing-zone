@@ -11,15 +11,16 @@ import { Testimonials } from "@/components/Testimonials";
 import CTASection from "@/components/CTASection";
 import BottomNav from "@/components/BottomNav";
 import DownloadBanner from "@/components/DownloadBanner";
+import EntrepreneurBanner from "@/components/EntrepreneurBanner";
 import { motion } from "framer-motion";
 
 const Index = () => {
   useEffect(() => {
     document.title = "FresherBot - Launch Your Career Journey";
     // Add padding to body to account for fixed navbar and download banner
-    document.body.style.paddingTop = "96px"; // Increased to account for download banner
+    document.body.style.paddingTop = "0"; // No padding needed as we want hero to be full height
     document.documentElement.style.scrollBehavior = "smooth";
-    document.body.style.backgroundColor = "#E0EDF4";
+    document.body.style.backgroundColor = "#3D0C11"; // Dark burgundy background
     
     return () => {
       document.documentElement.style.scrollBehavior = "";
@@ -53,9 +54,12 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#E0EDF4" }}>
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-burgundy-950 via-burgundy-900 to-burgundy-800">
       <DownloadBanner />
       <Navbar />
+      
+      {/* Entrepreneur Banner */}
+      <EntrepreneurBanner />
       
       {/* Hero Section */}
       <Hero />
@@ -63,7 +67,7 @@ const Index = () => {
       {/* Animated Floating Shapes */}
       <div className="relative overflow-hidden">
         <motion.div 
-          className="absolute top-20 left-10 w-32 h-32 rounded-full bg-blue-200/30 blur-3xl"
+          className="absolute top-20 left-10 w-32 h-32 rounded-full bg-burgundy-500/10 blur-3xl"
           animate={{
             x: [0, 50, 0],
             y: [0, 30, 0],
@@ -75,7 +79,7 @@ const Index = () => {
           }}
         />
         <motion.div 
-          className="absolute top-60 right-20 w-40 h-40 rounded-full bg-blue-400/20 blur-3xl"
+          className="absolute top-60 right-20 w-40 h-40 rounded-full bg-burgundy-300/10 blur-3xl"
           animate={{
             x: [0, -70, 0],
             y: [0, 50, 0],
@@ -88,65 +92,68 @@ const Index = () => {
         />
       </div>
       
-      {/* Trusted By Companies */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={fadeInUp}
-      >
-        <TrustedBy />
-      </motion.div>
-      
-      {/* Features Section with staggered animations */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={staggerContainer}
-      >
-        <Features />
-      </motion.div>
-      
-      {/* How We Do It */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={fadeInUp}
-      >
-        <HowWeDoIt />
-      </motion.div>
-      
-      {/* Testimonials */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={fadeInUp}
-      >
-        <Testimonials />
-      </motion.div>
-      
-      {/* Competitors Section */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={fadeInUp}
-      >
-        <Competitors />
-      </motion.div>
-      
-      {/* CTA Section */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={fadeInUp}
-      >
-        <CTASection />
-      </motion.div>
+      {/* The rest of the page with beige background */}
+      <div className="bg-beige-50">
+        {/* Trusted By Companies */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
+        >
+          <TrustedBy />
+        </motion.div>
+        
+        {/* Features Section with staggered animations */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={staggerContainer}
+        >
+          <Features />
+        </motion.div>
+        
+        {/* How We Do It */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
+        >
+          <HowWeDoIt />
+        </motion.div>
+        
+        {/* Testimonials */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
+        >
+          <Testimonials />
+        </motion.div>
+        
+        {/* Competitors Section */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
+        >
+          <Competitors />
+        </motion.div>
+        
+        {/* CTA Section */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
+        >
+          <CTASection />
+        </motion.div>
+      </div>
       
       <Footer />
       

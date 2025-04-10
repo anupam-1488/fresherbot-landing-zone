@@ -1,8 +1,8 @@
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
@@ -44,32 +44,32 @@ const Hero = () => {
     }
   };
 
-  return (
-    <section className="w-full pt-24 pb-16 md:py-24 overflow-hidden bg-gradient-to-b from-blue-50 to-blue-100/40">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
-          {/* Left Content */}
-          <div className="w-full lg:w-1/2">
-            {/* Badge */}
-            <motion.div
-              custom={0}
-              initial="hidden"
-              animate={isVisible ? "visible" : "hidden"}
-              variants={fadeUp}
-              className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-sm font-medium mb-6"
-            >
-              • EFFORTLESS SCREENING
-            </motion.div>
+  // Stats data
+  const stats = [
+    { number: "16K+", label: "Businesses", subtext: "Keeping projects on-track, more profitable and less-nightmarish." },
+    { number: "1.4M+", label: "Client relationships", subtext: "Managed each year. We just help keep the sparks flying." },
+    { number: "17K+", label: "New projects", subtext: "Created each week (then smashed out of ballparks, probably)." },
+    { number: "40M+", label: "Billable hours", subtext: "Logged in 2024. That's 4,566 years of ka-chings." }
+  ];
 
+  return (
+    <section className="w-full pt-28 pb-16 overflow-hidden bg-gradient-to-r from-burgundy-950 to-burgundy-800">
+      <div className="container mx-auto px-4">
+        {/* Hero Main Content */}
+        <div className="flex flex-col lg:flex-row items-center gap-12 mb-24">
+          {/* Left Content */}
+          <div className="w-full lg:w-1/2 text-left">
             {/* Main Heading */}
             <motion.h1
               custom={1}
               initial="hidden"
               animate={isVisible ? "visible" : "hidden"}
               variants={fadeUp}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-900 font-['Montserrat',sans-serif]"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-beige-100 font-['Montserrat',sans-serif]"
             >
-              Shortlist<br />Candidates In<br />Minutes
+              Master <span className="text-burgundy-300">skills</span>,<br />
+              resources, and<br />
+              <span className="text-burgundy-300">profits</span> like a pro
             </motion.h1>
 
             {/* Subheading */}
@@ -78,67 +78,95 @@ const Hero = () => {
               initial="hidden"
               animate={isVisible ? "visible" : "hidden"}
               variants={fadeUp}
-              className="text-lg mb-8 text-gray-800 font-['Montserrat',sans-serif]"
+              className="text-lg mb-6 text-beige-200/80 font-['Montserrat',sans-serif] max-w-lg"
             >
-              Online Skill-based Tests at <span className="text-blue-700 font-medium">₹85 per Candidate</span>
+              FresherBot is the smarter career management platform that keeps your 
+              <span className="text-burgundy-300 font-medium"> career goals on track</span>, your 
+              <span className="text-burgundy-300 font-medium"> resourcing in check</span>, and your 
+              <span className="text-burgundy-300 font-medium"> profits on point</span>. Finally, a 
+              management tool that actually manages.
             </motion.p>
 
-            {/* CTA Button */}
+            {/* CTA Buttons */}
             <motion.div
               custom={3}
               initial="hidden"
               animate={isVisible ? "visible" : "hidden"}
               variants={fadeUp}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="flex flex-col sm:flex-row gap-4 mb-8"
             >
               <Button 
                 size="lg" 
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-6 rounded-full font-medium shadow-lg"
+                className="bg-burgundy-500 hover:bg-burgundy-400 text-white px-6 rounded-md font-medium shadow-lg"
                 asChild
               >
-                <Link to="/programs">
-                  Explore Tests
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Link to="/get-started">
+                  Get started for free
+                </Link>
+              </Button>
+              
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-beige-200/30 text-beige-100 hover:bg-burgundy-800/50"
+                asChild
+              >
+                <Link to="/book-demo">
+                  Book a demo
                 </Link>
               </Button>
             </motion.div>
+            
+            {/* Trial note */}
+            <motion.p
+              custom={4}
+              initial="hidden"
+              animate={isVisible ? "visible" : "hidden"}
+              variants={fadeUp}
+              className="text-xs text-beige-200/60 font-['Montserrat',sans-serif]"
+            >
+              30 DAY TRIAL<br/>
+              NO CREDIT CARD REQUIRED
+            </motion.p>
           </div>
           
-          {/* Right Image with Animated Elements */}
+          {/* Right - Dashboard Image */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={imageAnimation}
             className="w-full lg:w-1/2 relative"
           >
-            <div className="relative overflow-hidden rounded-lg shadow-xl">
+            <div className="relative overflow-hidden rounded-lg shadow-2xl">
+              {/* Dashboard Image */}
               <img 
-                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" 
-                alt="Modern office with people working" 
-                className="w-full h-auto rounded-lg shadow-xl transition-transform hover:scale-105 duration-700"
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" 
+                alt="FresherBot Career Dashboard" 
+                className="w-full h-auto rounded-lg shadow-xl"
               />
               
-              {/* Animated floating elements */}
+              {/* Manage Projects Button */}
               <motion.div 
-                className="absolute -top-4 -right-4 bg-blue-500 text-white rounded-full p-3 shadow-lg"
+                className="absolute bottom-6 right-6"
                 animate={{ 
-                  y: [0, -10, 0],
+                  y: [0, -5, 0],
                 }}
                 transition={{ 
                   repeat: Infinity, 
-                  duration: 3,
+                  duration: 2,
                   ease: "easeInOut" 
                 }}
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                </svg>
+                <Button 
+                  className="bg-burgundy-400 hover:bg-burgundy-300 text-white px-4 py-2 rounded-md shadow-lg"
+                >
+                  Manage Projects
+                </Button>
               </motion.div>
               
-              {/* Additional floating elements */}
+              {/* Task Card */}
               <motion.div 
-                className="absolute bottom-4 -left-4 bg-white text-blue-600 rounded-lg p-2 shadow-lg"
+                className="absolute top-8 right-8 bg-white text-gray-900 rounded-lg p-3 shadow-lg max-w-xs"
                 animate={{ 
                   x: [0, 5, 0],
                 }}
@@ -148,39 +176,51 @@ const Hero = () => {
                   ease: "easeInOut" 
                 }}
               >
-                <div className="flex items-center gap-2">
-                  <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center">
-                    <span className="text-blue-600 font-bold">85</span>
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="h-8 w-8 rounded-full bg-burgundy-100 flex items-center justify-center">
+                    <span className="text-burgundy-600 font-bold">FB</span>
                   </div>
                   <div className="text-sm font-medium text-gray-800">
-                    per candidate
+                    Building Your <span className="text-burgundy-500">Career</span>?
                   </div>
                 </div>
-              </motion.div>
-              
-              {/* Animated badge */}
-              <motion.div 
-                className="absolute top-1/3 -right-3 bg-yellow-400 text-gray-900 rounded-lg px-3 py-1 shadow-lg"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ 
-                  opacity: 1,
-                  x: 0,
-                  rotate: [-2, 2, -2],
-                }}
-                transition={{ 
-                  rotate: {
-                    repeat: Infinity, 
-                    duration: 5,
-                  },
-                  opacity: { delay: 1 },
-                  x: { delay: 1 }
-                }}
-              >
-                <span className="text-sm font-bold">Fast Results!</span>
+                <div className="text-xs text-gray-600">
+                  We've got this together
+                </div>
               </motion.div>
             </div>
           </motion.div>
         </div>
+        
+        {/* Stats Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h3 className="text-lg text-beige-100 mb-8">
+            Happy customers. Happier clients. And the least-stressed teams around
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                viewport={{ once: true }}
+                className="flex flex-col items-center"
+              >
+                <span className="text-3xl md:text-4xl font-bold text-burgundy-300 mb-1">{stat.number}</span>
+                <span className="text-beige-100 font-medium mb-2">{stat.label}</span>
+                <p className="text-xs text-beige-200/70 max-w-[200px]">{stat.subtext}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
