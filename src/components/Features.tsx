@@ -2,7 +2,7 @@
 import React, { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { 
-  Graduation, Code, Brain, Globe, Award, BookOpen, 
+  GraduationCap, Code, Brain, Globe, Award, BookOpen, 
   ArrowRight, Monitor, HeadphonesIcon, Briefcase 
 } from "lucide-react";
 import {
