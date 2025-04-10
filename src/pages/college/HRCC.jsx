@@ -1,12 +1,16 @@
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { motion } from "framer-motion";
 
 const HRCC = () => {
+  const [activeTab, setActiveTab] = useState("hrcc1");
+  
   const carouselImages = [
     {
       id: 1,
@@ -34,6 +38,75 @@ const HRCC = () => {
       alt: "Coding session"
     }
   ];
+
+  const hrccTabs = [
+    {
+      id: "hrcc1",
+      title: "HRCC 1",
+      content: {
+        title: "Career Development",
+        description: "Comprehensive career development services for students including career counseling, resume building, and interview preparation.",
+        features: [
+          "One-on-one career guidance",
+          "Resume and cover letter workshops",
+          "Mock interviews with industry experts",
+          "Career assessment tools",
+          "Job search strategies"
+        ]
+      }
+    },
+    {
+      id: "hrcc2",
+      title: "HRCC 2",
+      content: {
+        title: "Industry Connections",
+        description: "Building bridges between academia and industry through partnerships, events, and networking opportunities.",
+        features: [
+          "Industry partnership programs",
+          "Networking events with professionals",
+          "Guest lectures and workshops",
+          "Company visits and tours",
+          "Industry mentorship programs"
+        ]
+      }
+    },
+    {
+      id: "hrcc3",
+      title: "HRCC 3",
+      content: {
+        title: "Placement Support",
+        description: "End-to-end placement assistance to help students secure their dream jobs and start their careers on the right note.",
+        features: [
+          "Campus recruitment drives",
+          "Pre-placement training",
+          "Company-specific preparation",
+          "Group discussion practice",
+          "Placement analytics and insights"
+        ]
+      }
+    },
+    {
+      id: "hrcc4",
+      title: "HRCC 4",
+      content: {
+        title: "Skill Development",
+        description: "Targeted skill enhancement programs to bridge the gap between academic learning and industry requirements.",
+        features: [
+          "Technical skills workshops",
+          "Soft skills training",
+          "Industry-specific certifications",
+          "Project-based learning",
+          "Leadership development"
+        ]
+      }
+    }
+  ];
+
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.3 } }
+  };
 
   useEffect(() => {
     document.title = "HRCC - FresherBot";
@@ -152,6 +225,73 @@ const HRCC = () => {
                 </ul>
               </div>
             </div>
+          </div>
+
+          {/* HRCC Tabs Section - Similar to the image example */}
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold mb-8 text-center" style={{color: 'rgb(3 105 161)'}}>HRCC Services</h2>
+            
+            <Tabs 
+              defaultValue="hrcc1" 
+              value={activeTab} 
+              onValueChange={setActiveTab}
+              className="w-full"
+            >
+              <div className="flex justify-center mb-8">
+                <TabsList className="grid grid-cols-2 md:grid-cols-4 gap-2 bg-beige-50">
+                  {hrccTabs.map(tab => (
+                    <TabsTrigger 
+                      key={tab.id}
+                      value={tab.id}
+                      className="data-[state=active]:bg-burgundy-500 data-[state=active]:text-white"
+                    >
+                      {tab.title}
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              </div>
+              
+              {hrccTabs.map(tab => (
+                <TabsContent 
+                  key={tab.id} 
+                  value={tab.id}
+                  className="mt-0"
+                >
+                  <motion.div
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    variants={fadeIn}
+                    className="bg-white rounded-lg shadow-lg p-8 border border-gray-100"
+                  >
+                    <h3 className="text-2xl font-bold mb-4 text-burgundy-700">{tab.content.title}</h3>
+                    <p className="text-lg mb-6 text-gray-700">{tab.content.description}</p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {tab.content.features.map((feature, idx) => (
+                        <div 
+                          key={idx}
+                          className="flex items-start p-4 bg-beige-50 rounded-lg"
+                        >
+                          <div className="h-6 w-6 rounded-full bg-burgundy-500 text-white flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                            {idx + 1}
+                          </div>
+                          <p className="text-burgundy-800">{feature}</p>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <div className="mt-8 flex justify-center">
+                      <Button 
+                        className="bg-burgundy-500 hover:bg-burgundy-600 text-white"
+                      >
+                        Learn More About {tab.content.title}
+                      </Button>
+                    </div>
+                  </motion.div>
+                </TabsContent>
+              ))}
+            </Tabs>
           </div>
 
           <div className="mb-12">

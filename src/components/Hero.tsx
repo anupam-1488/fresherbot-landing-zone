@@ -53,12 +53,11 @@ const Hero = () => {
   ];
 
   return (
-    <section className="w-full pt-28 pb-16 overflow-hidden bg-gradient-to-r from-burgundy-950 to-burgundy-800">
-      <div className="container mx-auto px-4">
-        {/* Hero Main Content */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 mb-24">
-          {/* Left Content */}
-          <div className="w-full lg:w-1/2 text-left">
+    <section className="w-full pt-28 pb-16 overflow-hidden">
+      <div className="flex flex-col lg:flex-row h-[70vh]">
+        {/* Left Text Content - Dark Side */}
+        <div className="w-full lg:w-1/2 bg-gradient-to-r from-burgundy-950 to-burgundy-800 text-left px-4 md:px-10 lg:px-16 flex flex-col justify-center">
+          <div className="max-w-xl">
             {/* Main Heading */}
             <motion.h1
               custom={1}
@@ -129,78 +128,77 @@ const Hero = () => {
               NO CREDIT CARD REQUIRED
             </motion.p>
           </div>
-          
-          {/* Right - Dashboard Image */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={imageAnimation}
-            className="w-full lg:w-1/2 relative"
-          >
-            <div className="relative overflow-hidden rounded-lg shadow-2xl">
-              {/* Dashboard Image */}
-              <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" 
-                alt="FresherBot Career Dashboard" 
-                className="w-full h-auto rounded-lg shadow-xl"
-              />
-              
-              {/* Manage Projects Button */}
-              <motion.div 
-                className="absolute bottom-6 right-6"
-                animate={{ 
-                  y: [0, -5, 0],
-                }}
-                transition={{ 
-                  repeat: Infinity, 
-                  duration: 2,
-                  ease: "easeInOut" 
-                }}
-              >
-                <Button 
-                  className="bg-burgundy-400 hover:bg-burgundy-300 text-white px-4 py-2 rounded-md shadow-lg"
-                >
-                  Manage Projects
-                </Button>
-              </motion.div>
-              
-              {/* Task Card */}
-              <motion.div 
-                className="absolute top-8 right-8 bg-white text-gray-900 rounded-lg p-3 shadow-lg max-w-xs"
-                animate={{ 
-                  x: [0, 5, 0],
-                }}
-                transition={{ 
-                  repeat: Infinity, 
-                  duration: 4,
-                  ease: "easeInOut" 
-                }}
-              >
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="h-8 w-8 rounded-full bg-burgundy-100 flex items-center justify-center">
-                    <span className="text-burgundy-600 font-bold">FB</span>
-                  </div>
-                  <div className="text-sm font-medium text-gray-800">
-                    Building Your <span className="text-burgundy-500">Career</span>?
-                  </div>
-                </div>
-                <div className="text-xs text-gray-600">
-                  We've got this together
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
         </div>
         
-        {/* Stats Section */}
+        {/* Right - Dashboard Image - Brighter Side */}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={imageAnimation}
+          className="w-full lg:w-1/2 h-full relative bg-beige-50"
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" 
+            alt="FresherBot Career Dashboard" 
+            className="w-full h-full object-cover"
+          />
+          
+          {/* Manage Projects Button */}
+          <motion.div 
+            className="absolute bottom-6 right-6"
+            animate={{ 
+              y: [0, -5, 0],
+            }}
+            transition={{ 
+              repeat: Infinity, 
+              duration: 2,
+              ease: "easeInOut" 
+            }}
+          >
+            <Button 
+              className="bg-burgundy-400 hover:bg-burgundy-300 text-white px-4 py-2 rounded-md shadow-lg"
+            >
+              Manage Projects
+            </Button>
+          </motion.div>
+          
+          {/* Task Card */}
+          <motion.div 
+            className="absolute top-8 right-8 bg-white text-gray-900 rounded-lg p-3 shadow-lg max-w-xs"
+            animate={{ 
+              x: [0, 5, 0],
+            }}
+            transition={{ 
+              repeat: Infinity, 
+              duration: 4,
+              ease: "easeInOut" 
+            }}
+          >
+            <div className="flex items-center gap-2 mb-2">
+              <div className="h-8 w-8 rounded-full bg-burgundy-100 flex items-center justify-center">
+                <span className="text-burgundy-600 font-bold">FB</span>
+              </div>
+              <div className="text-sm font-medium text-gray-800">
+                Building Your <span className="text-burgundy-500">Career</span>?
+              </div>
+            </div>
+            <div className="text-xs text-gray-600">
+              We've got this together
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
+      
+      {/* Stats Section */}
+      <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-16 mt-16"
         >
-          <h3 className="text-lg text-beige-100 mb-8">
+          <h3 className="text-lg text-burgundy-900 mb-8">
             Happy customers. Happier clients. And the least-stressed teams around
           </h3>
           
@@ -214,9 +212,9 @@ const Hero = () => {
                 viewport={{ once: true }}
                 className="flex flex-col items-center"
               >
-                <span className="text-3xl md:text-4xl font-bold text-burgundy-300 mb-1">{stat.number}</span>
-                <span className="text-beige-100 font-medium mb-2">{stat.label}</span>
-                <p className="text-xs text-beige-200/70 max-w-[200px]">{stat.subtext}</p>
+                <span className="text-3xl md:text-4xl font-bold text-burgundy-500 mb-1">{stat.number}</span>
+                <span className="text-burgundy-900 font-medium mb-2">{stat.label}</span>
+                <p className="text-xs text-burgundy-700/70 max-w-[200px]">{stat.subtext}</p>
               </motion.div>
             ))}
           </div>

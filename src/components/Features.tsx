@@ -139,7 +139,7 @@ const FeatureSection = ({
   return (
     <div 
       ref={sectionRef}
-      className="min-h-[80vh] flex items-center mb-24"
+      className="min-h-[80vh] flex items-center mb-24 snap-start"
     >
       <div className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-10 lg:gap-16`}>
         <motion.div
