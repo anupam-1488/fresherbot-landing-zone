@@ -10,7 +10,6 @@ import HowWeDoIt from "@/components/HowWeDoIt";
 import { Testimonials } from "@/components/Testimonials";
 import CTASection from "@/components/CTASection";
 import BottomNav from "@/components/BottomNav";
-import DownloadBanner from "@/components/DownloadBanner";
 import EntrepreneurBanner from "@/components/EntrepreneurBanner";
 import { motion } from "framer-motion";
 
@@ -55,7 +54,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-burgundy-950 via-burgundy-900 to-burgundy-800">
-      <DownloadBanner />
       <Navbar />
       
       {/* Entrepreneur Banner */}
@@ -94,7 +92,7 @@ const Index = () => {
       
       {/* The rest of the page with beige background */}
       <div className="bg-beige-50">
-        {/* Trusted By Companies */}
+        {/* Trusted By Companies and Colleges */}
         <motion.div
           initial="hidden"
           whileInView="visible"

@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "/Images/fresherbot_logo_dark.png";
 import { motion } from "framer-motion";
@@ -10,6 +10,22 @@ import { motion } from "framer-motion";
 const Navbar = () => {
   const isMobile = useIsMobile();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
 
   // Animation variants
   const navAnimation = {
@@ -29,7 +45,9 @@ const Navbar = () => {
       initial="hidden"
       animate="visible"
       variants={navAnimation}
-      className="w-full py-4 fixed top-0 left-0 right-0 z-50 bg-transparent"
+      className={`w-full py-4 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-burgundy-900/95 backdrop-blur-sm shadow-md" : "bg-transparent"
+      }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
