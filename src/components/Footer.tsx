@@ -6,60 +6,63 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-fresherbot-darker text-foreground border-t border-fresherbot-primary/20">
+    <footer className="bg-white text-slate-600 border-t border-slate-200">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4 text-fresherbot-primary">FresherBot</h3>
-            <p className="text-muted-foreground mb-4">
+            <h3 className="text-xl font-bold mb-4 text-slate-900">FresherBot</h3>
+            <p className="text-slate-600 mb-4">
               Connecting talented freshers with the right opportunities.
             </p>
             <div className="flex space-x-4">
-              <a href="#" aria-label="Facebook" className="text-muted-foreground hover:text-fresherbot-primary transition-colors">
+              <a href="#" aria-label="Facebook" className="text-slate-400 hover:text-slate-900 transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="#" aria-label="Twitter" className="text-muted-foreground hover:text-fresherbot-primary transition-colors">
+              <a href="#" aria-label="Twitter" className="text-slate-400 hover:text-slate-900 transition-colors">
                 <Twitter size={20} />
               </a>
-              <a href="#" aria-label="LinkedIn" className="text-muted-foreground hover:text-fresherbot-primary transition-colors">
+              <a href="#" aria-label="LinkedIn" className="text-slate-400 hover:text-slate-900 transition-colors">
                 <Linkedin size={20} />
               </a>
-              <a href="#" aria-label="Instagram" className="text-muted-foreground hover:text-fresherbot-primary transition-colors">
+              <a href="#" aria-label="Instagram" className="text-slate-400 hover:text-slate-900 transition-colors">
                 <Instagram size={20} />
               </a>
             </div>
           </div>
           
           <div>
-            <h4 className="text-lg font-medium mb-4 text-fresherbot-primary">For Users</h4>
+            <h4 className="text-lg font-medium mb-4 text-slate-900">Products</h4>
             <ul className="space-y-2">
-              <li><Link to="/candidate" className="text-muted-foreground hover:text-fresherbot-primary transition-colors">Candidates</Link></li>
-              <li><Link to="/employer" className="text-muted-foreground hover:text-fresherbot-primary transition-colors">Employers</Link></li>
-              <li><Link to="/college" className="text-muted-foreground hover:text-fresherbot-primary transition-colors">Colleges</Link></li>
+              <li><Link to="/assessments" className="text-slate-600 hover:text-slate-900 transition-colors">Assessments</Link></li>
+              <li><Link to="/proctoring" className="text-slate-600 hover:text-slate-900 transition-colors">Proctoring</Link></li>
+              <li><Link to="/analytics" className="text-slate-600 hover:text-slate-900 transition-colors">Analytics</Link></li>
+              <li><Link to="/integrations" className="text-slate-600 hover:text-slate-900 transition-colors">Integrations</Link></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-lg font-medium mb-4 text-fresherbot-primary">Resources</h4>
+            <h4 className="text-lg font-medium mb-4 text-slate-900">Resources</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-muted-foreground hover:text-fresherbot-primary transition-colors">Blog</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-fresherbot-primary transition-colors">Career Tips</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-fresherbot-primary transition-colors">Interview Guide</a></li>
+              <li><Link to="/blog" className="text-slate-600 hover:text-slate-900 transition-colors">Blog</Link></li>
+              <li><Link to="/guides" className="text-slate-600 hover:text-slate-900 transition-colors">Guides</Link></li>
+              <li><Link to="/case-studies" className="text-slate-600 hover:text-slate-900 transition-colors">Case Studies</Link></li>
+              <li><Link to="/help-center" className="text-slate-600 hover:text-slate-900 transition-colors">Help Center</Link></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-lg font-medium mb-4 text-fresherbot-primary">Company</h4>
+            <h4 className="text-lg font-medium mb-4 text-slate-900">Company</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-muted-foreground hover:text-fresherbot-primary transition-colors">About Us</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-fresherbot-primary transition-colors">Contact</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-fresherbot-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-fresherbot-primary transition-colors">Terms of Service</a></li>
+              <li><Link to="/about" className="text-slate-600 hover:text-slate-900 transition-colors">About Us</Link></li>
+              <li><Link to="/contact" className="text-slate-600 hover:text-slate-900 transition-colors">Contact</Link></li>
+              <li><Link to="/careers" className="text-slate-600 hover:text-slate-900 transition-colors">Careers</Link></li>
+              <li><Link to="/privacy" className="text-slate-600 hover:text-slate-900 transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="text-slate-600 hover:text-slate-900 transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
         </div>
         
-        <div className="border-t border-fresherbot-primary/20 mt-12 pt-8 text-center text-muted-foreground">
+        <div className="border-t border-slate-200 mt-12 pt-8 text-center text-slate-500">
           <p>&copy; {currentYear} FresherBot. All rights reserved.</p>
         </div>
       </div>

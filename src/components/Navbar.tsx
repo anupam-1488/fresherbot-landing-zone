@@ -3,231 +3,136 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useState, useEffect } from "react";
-import { Menu, BookOpen, Code, Briefcase, Building, GraduationCap } from "lucide-react";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
+import { Menu, X } from "lucide-react";
 import logo from "/Images/fresherbot_logo_dark.png";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const isMobile = useIsMobile();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Custom cursor effect
+  // Handle scroll effect
   useEffect(() => {
-    const moveCursor = (e: MouseEvent) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
     };
 
-    const handleMouseOver = () => setIsHovering(true);
-    const handleMouseOut = () => setIsHovering(false);
-    
-    document.addEventListener('mousemove', moveCursor);
-    
-    const interactiveElements = document.querySelectorAll('a, button, [role="button"]');
-    interactiveElements.forEach(element => {
-      element.addEventListener('mouseover', handleMouseOver);
-      element.addEventListener('mouseout', handleMouseOut);
-    });
-    
-    // Create cursor element
-    const cursor = document.createElement('div');
-    cursor.classList.add('custom-cursor');
-    document.body.appendChild(cursor);
-    
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      document.removeEventListener('mousemove', moveCursor);
-      interactiveElements.forEach(element => {
-        element.removeEventListener('mouseover', handleMouseOver);
-        element.removeEventListener('mouseout', handleMouseOut);
-      });
-      
-      document.body.removeChild(cursor);
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [scrolled]);
 
-  // Update cursor position and state
-  useEffect(() => {
-    const cursor = document.querySelector('.custom-cursor');
-    if (cursor) {
-      const cursorEl = cursor as HTMLElement;
-      cursorEl.style.left = `${cursorPosition.x}px`;
-      cursorEl.style.top = `${cursorPosition.y}px`;
-      
-      if (isHovering) {
-        cursor.classList.add('hovering');
-      } else {
-        cursor.classList.remove('hovering');
+  // Animation variants
+  const navAnimation = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut"
       }
     }
-  }, [cursorPosition, isHovering]);
-
-  const ListItem = ({ className, title, href, children }) => {
-    return (
-      <li>
-        <NavigationMenuLink asChild>
-          <Link
-            to={href}
-            className={cn(
-              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-fresherbot-primary/10 hover:text-fresherbot-primary focus:bg-fresherbot-primary/10 focus:text-fresherbot-primary",
-              className
-            )}
-          >
-            <div className="text-sm font-medium leading-none">{title}</div>
-            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-              {children}
-            </p>
-          </Link>
-        </NavigationMenuLink>
-      </li>
-    );
   };
 
   return (
-    <nav className="w-full bg-fresherbot-darker shadow-sm py-6 fixed top-0 left-0 right-0 z-50 border-b border-fresherbot-primary/20">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="flex items-center">
-          <Link to="/" className="flex items-center">
-            <img src={logo} alt="Fresherbot Logo" />
-          </Link>
-        </div>
-        
-        {isMobile ? (
-          <>
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle menu"
-            >
-              <Menu className="h-6 w-6" />
-            </Button>
-            
-            {menuOpen && (
-              <div className="absolute top-16 right-0 left-0 bg-fresherbot-dark shadow-md py-4 px-4 border-b border-fresherbot-primary/20">
-                <div className="flex flex-col space-y-3">
-                  <div className="px-4 py-2">
-                    <p className="font-medium flex items-center text-fresherbot-primary"><BookOpen className="h-4 w-4 mr-2" /> For Candidate</p>
-                    <div className="ml-4 mt-1 space-y-1">
-                      <Link to="/candidate/blog" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Blog</Link>
-                      <Link to="/candidate/programs" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Programs</Link>
-                      <Link to="/candidate/internships" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Internships</Link>
-                    </div>
-                  </div>
-                  
-                  <div className="px-4 py-2">
-                    <p className="font-medium flex items-center text-fresherbot-primary"><Building className="h-4 w-4 mr-2" /> For Employer</p>
-                    <div className="ml-4 mt-1 space-y-1">
-                      <Link to="/employer/hiring-assessments" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Hiring Assessments</Link>
-                      <Link to="/employer/hackathon" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Hackathon</Link>
-                      <Link to="/employer/campus-hiring" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">Campus Hiring</Link>
-                    </div>
-                  </div>
-                  
-                  <div className="px-4 py-2">
-                    <p className="font-medium flex items-center text-fresherbot-primary"><GraduationCap className="h-4 w-4 mr-2" /> For College</p>
-                    <div className="ml-4 mt-1 space-y-1">
-                      <Link to="/college/lms" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">LMS</Link>
-                      <Link to="/college/crt" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">CRT</Link>
-                      <Link to="/college/hrcc" className="block px-2 py-1 hover:bg-fresherbot-primary/10 rounded-md">HRCC</Link>
-                    </div>
-                  </div>
-                  
-                  <div className="border-t border-fresherbot-primary/20 pt-2 flex flex-col space-y-2">
-                    <Button variant="outline" className="border-fresherbot-primary text-fresherbot-primary hover:bg-fresherbot-primary/10" asChild>
-                      <Link to="/login">Login</Link>
-                    </Button>
-                    <Button className="bg-fresherbot-primary text-fresherbot-dark hover:bg-fresherbot-primary/90" asChild>
-                      <Link to="/register">Register</Link>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            )}
-          </>
-        ) : (
-          <div className="flex items-center space-x-6">
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="flex items-center text-foreground hover:text-fresherbot-primary">
-                    <BookOpen className="h-4 w-4 mr-1" /> For Candidate
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-3 bg-fresherbot-dark border border-fresherbot-primary/20">
-                      <ListItem href="/candidate/blog" title="Blog" className="">
-                        Read our latest articles and updates.
-                      </ListItem>
-                      <ListItem href="/candidate/programs" title="Programs" className="">
-                        Explore our training programs.
-                      </ListItem>
-                      <ListItem href="/candidate/internships" title="Internships" className="">
-                        Find the right internship opportunity.
-                      </ListItem>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="flex items-center text-foreground hover:text-fresherbot-primary">
-                    <Building className="h-4 w-4 mr-1" /> For Employer
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-3 bg-fresherbot-dark border border-fresherbot-primary/20">
-                      <ListItem href="/employer/hiring-assessments" title="Hiring Assessments" className="">
-                        Assess candidates effectively.
-                      </ListItem>
-                      <ListItem href="/employer/hackathon" title="Hackathon" className="">
-                        Organize hackathons to find top talent.
-                      </ListItem>
-                      <ListItem href="/employer/campus-hiring" title="Campus Hiring" className="">
-                        Connect with universities for recruitment.
-                      </ListItem>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="flex items-center text-foreground hover:text-fresherbot-primary">
-                    <GraduationCap className="h-4 w-4 mr-1" /> For College
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-3 bg-fresherbot-dark border border-fresherbot-primary/20">
-                      <ListItem href="/college/lms" title="LMS" className="">
-                        Learning Management System solutions.
-                      </ListItem>
-                      <ListItem href="/college/crt" title="CRT" className="">
-                        Campus Recruitment Training.
-                      </ListItem>
-                      <ListItem href="/college/hrcc" title="HRCC" className="">
-                        Human Resource Career Center.
-                      </ListItem>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            
-            <div className="flex space-x-2">
-              <Button variant="outline" className="border-2 border-fresherbot-primary text-fresherbot-primary hover:bg-fresherbot-primary/10" asChild>
-                <Link to="/login">Login</Link>
+    <motion.nav 
+      initial="hidden"
+      animate="visible"
+      variants={navAnimation}
+      className={`w-full py-4 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-burgundy-900/95 backdrop-blur-sm shadow-md" : "bg-transparent"
+      }`}
+    >
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center">
+          <motion.div 
+            className="flex items-center"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            <Link to="/" className="flex items-center">
+              <img src={logo} alt="FresherBot Logo" className="h-8" />
+            </Link>
+          </motion.div>
+          
+          {isMobile ? (
+            <>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Toggle menu"
+                className="text-gray-100"
+              >
+                <Menu className="h-6 w-6" />
               </Button>
-              <Button className="bg-fresherbot-primary text-fresherbot-dark hover:bg-fresherbot-primary/90 shadow-md" asChild>
-                <Link to="/register">Register</Link>
-              </Button>
+              
+              {menuOpen && (
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute top-16 right-0 left-0 shadow-md py-4 px-4 bg-burgundy-900/90 backdrop-blur-md"
+                >
+                  <div className="flex flex-col space-y-3">
+                    <Link to="/why-fresherbot" className="px-3 py-2 hover:bg-burgundy-800/50 rounded text-beige-100 font-['Montserrat',sans-serif]">Why FresherBot</Link>
+                    <Link to="/product" className="px-3 py-2 hover:bg-burgundy-800/50 rounded text-beige-100 font-['Montserrat',sans-serif]">Product</Link>
+                    <Link to="/compare-us" className="px-3 py-2 hover:bg-burgundy-800/50 rounded text-beige-100 font-['Montserrat',sans-serif]">Compare Us</Link>
+                    
+                    <div className="pt-2 border-t border-burgundy-700">
+                      <div className="flex gap-2">
+                        <Button className="flex-1 bg-burgundy-700 hover:bg-burgundy-600 text-beige-100 font-['Montserrat',sans-serif]" asChild>
+                          <Link to="/login">Login</Link>
+                        </Button>
+                        <Button className="flex-1 bg-burgundy-500 hover:bg-burgundy-400 text-white font-['Montserrat',sans-serif]" asChild>
+                          <Link to="/register">Register</Link>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </>
+          ) : (
+            <div className="flex items-center space-x-6">
+              <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                <Link to="/why-fresherbot" className="text-burgundy-100 hover:text-white font-medium font-['Montserrat',sans-serif]">Why FresherBot</Link>
+              </motion.div>
+              
+              <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                <Link to="/product" className="text-burgundy-100 hover:text-white font-medium font-['Montserrat',sans-serif]">Product</Link>
+              </motion.div>
+              
+              <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                <Link to="/compare-us" className="text-burgundy-100 hover:text-white font-medium font-['Montserrat',sans-serif]">Compare Us</Link>
+              </motion.div>
+              
+              <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                <Button variant="ghost" className="text-burgundy-100 hover:text-white hover:bg-transparent font-medium font-['Montserrat',sans-serif]" asChild>
+                  <Link to="/login">Login</Link>
+                </Button>
+              </motion.div>
+              
+              <motion.div 
+                whileHover={{ scale: 1.05 }} 
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <Button className="bg-burgundy-500 hover:bg-burgundy-400 text-white px-5 py-2 rounded-md shadow-md font-['Montserrat',sans-serif]" asChild>
+                  <Link to="/register">Register</Link>
+                </Button>
+              </motion.div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

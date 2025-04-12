@@ -1,170 +1,238 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import TypedText from "./TypedText";
-import { ArrowRight, Sparkles, Users, Rocket, Check } from "lucide-react";
 import { motion } from "framer-motion";
+import { ArrowRight, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
-  const [showTypedText, setShowTypedText] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowTypedText(true);
-    }, 500);
+      setIsVisible(true);
+    }, 200);
 
     return () => clearTimeout(timer);
   }, []);
 
-  const fadeIn = {
+  const fadeUp = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.1 * i,
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    })
   };
 
+  // Animation for the image
+  const imageAnimation = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { 
+        delay: 0.3, 
+        duration: 0.6,
+        type: "spring",
+        stiffness: 100
+      }
+    }
+  };
+
+  // Stats data
+  const stats = [
+    { 
+      number: "16K+", 
+      label: "Businesses", 
+      color: "#f8a4cc", // Pink color from image
+      subtext: "Keeping projects on-track, more profitable and less-nightmarish." 
+    },
+    { 
+      number: "1.4M+", 
+      label: "Client relationships", 
+      color: "#ff9d76", // Orange/peach color from image
+      subtext: "Managed each year. We just help keep the sparks flying." 
+    },
+    { 
+      number: "17K+", 
+      label: "New projects", 
+      color: "#a587ff", // Purple color from image
+      subtext: "Created each week (then smashed out of ballparks, probably)." 
+    },
+    { 
+      number: "40M+", 
+      label: "Billable hours", 
+      color: "#f075ba", // Pink color from image
+      subtext: "Logged in 2024. That's 4,566 years of ka-chings." 
+    }
+  ];
+
   return (
-    <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
-      {/* Modern geometric background with gradient overlay */}
-      <div className="absolute inset-0 bg-fresherbot-darker z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-fresherbot-darker via-fresherbot-dark to-fresherbot-dark/90"></div>
+    <section className="w-full overflow-hidden">
+      {/* Full Screen Hero Section with absolutely positioned content */}
+      <div className="h-screen w-full relative">
+        {/* Background Image - Full Screen */}
+        <div className="absolute inset-0 w-full h-full">
+          <img 
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80" 
+            alt="FresherBot Career Dashboard" 
+            className="w-full h-full object-cover brightness-50"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#121339]/95 to-[#121339]/80"></div>
+        </div>
         
-        {/* Animated shapes */}
-        <motion.div 
-          className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-fresherbot-primary/10 blur-3xl"
-          animate={{
-            x: [0, 20, 0],
-            y: [0, -20, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div 
-          className="absolute bottom-32 -left-16 w-72 h-72 rounded-full bg-fresherbot-secondary/10 blur-3xl"
-          animate={{
-            x: [0, -30, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+        {/* Content Overlay */}
+        <div className="relative h-full w-full flex items-center">
+          <div className="container mx-auto px-4 md:px-8 flex flex-col lg:flex-row items-center">
+            {/* Left Text Content */}
+            <div className="w-full lg:w-1/2 text-left pt-16 z-10">
+              <div className="max-w-xl">
+                {/* Main Heading */}
+                <motion.h1
+                  custom={1}
+                  initial="hidden"
+                  animate={isVisible ? "visible" : "hidden"}
+                  variants={fadeUp}
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white font-['Montserrat',sans-serif]"
+                >
+                  FresherBot is the <span className="text-[#8F76FF]">smarter</span> career management platform
+                </motion.h1>
+
+                {/* Subheading */}
+                <motion.p
+                  custom={2}
+                  initial="hidden"
+                  animate={isVisible ? "visible" : "hidden"}
+                  variants={fadeUp}
+                  className="text-lg mb-6 text-white/90 font-['Montserrat',sans-serif] max-w-lg"
+                >
+                  that keeps your 
+                  <span className="text-[#8F76FF] font-medium"> career goals on track</span>, your 
+                  <span className="text-[#8F76FF] font-medium"> resourcing in check</span>, and your 
+                  <span className="text-[#8F76FF] font-medium"> profits on point</span>. Finally, a 
+                  management tool that actually manages.
+                </motion.p>
+
+                {/* CTA Buttons */}
+                <motion.div
+                  custom={3}
+                  initial="hidden"
+                  animate={isVisible ? "visible" : "hidden"}
+                  variants={fadeUp}
+                  className="flex flex-col sm:flex-row gap-4 mb-8"
+                >
+                  <Button 
+                    size="lg" 
+                    className="bg-[#8F76FF] hover:bg-[#7B65E8] text-white px-6 rounded-full font-medium shadow-lg"
+                    asChild
+                  >
+                    <Link to="/get-started">
+                      Get started for free
+                    </Link>
+                  </Button>
+                  
+                  <Button 
+                    size="lg" 
+                    variant="outline"
+                    className="border-white/30 text-white hover:bg-white/10 rounded-full"
+                    asChild
+                  >
+                    <Link to="/book-demo">
+                      Book a demo
+                    </Link>
+                  </Button>
+                </motion.div>
+                
+                {/* Trial note */}
+                <motion.p
+                  custom={4}
+                  initial="hidden"
+                  animate={isVisible ? "visible" : "hidden"}
+                  variants={fadeUp}
+                  className="text-xs text-white/60 font-['Montserrat',sans-serif]"
+                >
+                  30 DAY TRIAL<br/>
+                  NO CREDIT CARD REQUIRED
+                </motion.p>
+              </div>
+            </div>
+            
+            {/* Right Side - Task Cards */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={imageAnimation}
+              className="w-full lg:w-1/2 h-full relative hidden lg:block"
+            >
+              {/* Manage Projects Button */}
+              <motion.div 
+                className="absolute top-1/3 right-8"
+                animate={{ 
+                  y: [0, -5, 0],
+                }}
+                transition={{ 
+                  repeat: Infinity, 
+                  duration: 2,
+                  ease: "easeInOut" 
+                }}
+              >
+                <Button 
+                  className="bg-[#FF6EB5] hover:bg-[#FF5AA8] text-white px-4 py-2 rounded-full shadow-lg"
+                >
+                  Manage Projects
+                </Button>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
       </div>
-
-      <div className="container mx-auto px-4 z-10">
-        <div className="max-w-3xl">
-          <motion.div 
-            className="inline-flex items-center mb-6 bg-fresherbot-primary/10 backdrop-blur-md py-2 px-4 rounded-full border border-fresherbot-primary/30"
-            initial={fadeIn.hidden}
-            animate={fadeIn.visible}
+      
+      {/* Stats Section with Dark Background */}
+      <div className="bg-[#121339] w-full py-16">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
           >
-            <Sparkles className="h-4 w-4 mr-2 text-fresherbot-primary" />
-            <span className="text-sm font-medium text-fresherbot-primary">
-              Join 10,000+ freshers already on board
-            </span>
-          </motion.div>
-
-          <motion.h1 
-            className="text-4xl md:text-6xl font-bold mb-4 leading-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Building your <span className="text-fresherbot-primary">future</span> starts here
-          </motion.h1>
-
-          <motion.div 
-            className="text-3xl md:text-5xl font-bold mb-8 heading-gradient h-[60px]"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            {showTypedText ? (
-              <TypedText text="WE HAVE GOT YOUR BACK" typingSpeed={100} />
-            ) : (
-              <span>&nbsp;</span>
-            )}
-          </motion.div>
-
-          <motion.p 
-            className="text-lg md:text-xl opacity-90 mb-8 max-w-2xl leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            Connect with top companies, colleges, and opportunities tailored for
-            freshers and early career professionals. Your career journey begins with us.
-          </motion.p>
-
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <Button 
-              size="lg" 
-              className="bg-fresherbot-primary hover:bg-fresherbot-primary/90 text-fresherbot-dark px-8 py-6 text-lg flex items-center rounded-full font-semibold"
-            >
-              Explore Opportunities
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-fresherbot-primary bg-transparent hover:bg-fresherbot-primary/10 text-fresherbot-primary px-8 py-6 text-lg transition-all rounded-full"
-            >
-              Learn More
-            </Button>
-          </motion.div>
-
-          <motion.div 
-            className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-          >
-            <div className="flex items-center">
-              <div className="bg-fresherbot-primary/20 backdrop-blur-sm p-2 rounded-full">
-                <Check className="h-5 w-5 text-fresherbot-primary" />
-              </div>
-              <span className="ml-2 text-sm md:text-base">300+ Programs</span>
-            </div>
-            <div className="flex items-center">
-              <div className="bg-fresherbot-primary/20 backdrop-blur-sm p-2 rounded-full">
-                <Users className="h-5 w-5 text-fresherbot-primary" />
-              </div>
-              <span className="ml-2 text-sm md:text-base">500+ Employers</span>
-            </div>
-            <div className="flex items-center">
-              <div className="bg-fresherbot-primary/20 backdrop-blur-sm p-2 rounded-full">
-                <Rocket className="h-5 w-5 text-fresherbot-primary" />
-              </div>
-              <span className="ml-2 text-sm md:text-base">97% Success Rate</span>
+            <h3 className="text-lg text-white mb-12">
+              Happy customers. Happier clients. And the least-stressed teams around
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {stats.map((stat, index) => (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col items-center text-left"
+                >
+                  <div className="w-full flex flex-col items-center md:items-start">
+                    <span 
+                      className="text-4xl md:text-5xl font-bold mb-1"
+                      style={{ color: stat.color }}
+                    >
+                      {stat.number}
+                    </span>
+                    <span className="text-white font-medium mb-2">{stat.label}</span>
+                    <p className="text-white/70 text-sm max-w-[250px] text-center md:text-left">{stat.subtext}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>
       </div>
-
-      {/* Bottom wave overlay in brand colors */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
-        <svg
-          xmlns="http://www.w3.org/2000/svg" 
-          viewBox="0 0 1440 320"
-          className="w-full h-auto"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#121212"
-            fillOpacity="1"
-            d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-          ></path>
-        </svg>
-      </div>
-    </div>
+    </section>
   );
 };
 
