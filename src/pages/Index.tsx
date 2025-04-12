@@ -20,7 +20,7 @@ const Index = () => {
     document.body.style.padding = "0";
     document.body.style.margin = "0";
     document.documentElement.style.scrollBehavior = "smooth";
-    document.body.style.backgroundColor = "#3D0C11"; // Dark burgundy background
+    document.body.style.backgroundColor = "#121339"; // Dark navy/purple background to match the image
     
     return () => {
       document.documentElement.style.scrollBehavior = "";
