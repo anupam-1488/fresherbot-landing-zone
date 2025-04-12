@@ -2,7 +2,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import TrustedBy from "@/components/TrustedBy";
 import Features from "@/components/Features";
 import Competitors from "@/components/Competitors";
@@ -12,6 +12,7 @@ import CTASection from "@/components/CTASection";
 import BottomNav from "@/components/BottomNav";
 import EntrepreneurBanner from "@/components/EntrepreneurBanner";
 import { motion } from "framer-motion";
+import FeatureSlides from "@/components/FeatureSlides";
 
 const Index = () => {
   useEffect(() => {
@@ -83,6 +84,9 @@ const Index = () => {
         >
           <Features />
         </motion.div>
+        
+        {/* Full Screen Feature Slides */}
+        <FeatureSlides />
         
         {/* How We Do It */}
         <motion.div
