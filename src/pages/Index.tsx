@@ -17,13 +17,15 @@ const Index = () => {
   useEffect(() => {
     document.title = "FresherBot - Launch Your Career Journey";
     // Remove any padding to enable full-screen hero
-    document.body.style.paddingTop = "0";
+    document.body.style.padding = "0";
+    document.body.style.margin = "0";
     document.documentElement.style.scrollBehavior = "smooth";
     document.body.style.backgroundColor = "#3D0C11"; // Dark burgundy background
     
     return () => {
       document.documentElement.style.scrollBehavior = "";
-      document.body.style.paddingTop = "0";
+      document.body.style.padding = "";
+      document.body.style.margin = "";
       document.body.style.backgroundColor = "";
     };
   }, []);
@@ -53,39 +55,11 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col w-full overflow-x-hidden">
       <Navbar />
       
       {/* Full screen Hero Section */}
       <Hero />
-      
-      {/* Animated Floating Shapes */}
-      <div className="relative overflow-hidden bg-beige-50">
-        <motion.div 
-          className="absolute top-20 left-10 w-32 h-32 rounded-full bg-burgundy-500/10 blur-3xl"
-          animate={{
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div 
-          className="absolute top-60 right-20 w-40 h-40 rounded-full bg-burgundy-300/10 blur-3xl"
-          animate={{
-            x: [0, -70, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-      </div>
       
       {/* The rest of the page with beige background */}
       <div className="bg-beige-50">
