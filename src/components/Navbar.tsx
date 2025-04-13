@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "/Images/fresherbot_logo_dark.png";
+import logo from "/Images/fresherbotlogo.png";
 import { motion } from "framer-motion";
 
 const Navbar = () => {

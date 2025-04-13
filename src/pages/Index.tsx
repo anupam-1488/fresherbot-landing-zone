@@ -13,6 +13,7 @@ import BottomNav from "@/components/BottomNav";
 import EntrepreneurBanner from "@/components/EntrepreneurBanner";
 import { motion } from "framer-motion";
 import FeatureSlides from "@/components/FeatureSlides";
+import Howtodo from "@/components/Howtodo";
 
 const Index = () => {
   useEffect(() => {
@@ -75,7 +76,7 @@ const Index = () => {
         </motion.div>
         
         {/* Features Section with staggered animations */}
-        <motion.div
+        {/* <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -83,10 +84,10 @@ const Index = () => {
           className="bg-beige-50"
         >
           <Features />
-        </motion.div>
+        </motion.div> */}
         
         {/* Full Screen Feature Slides */}
-        <FeatureSlides />
+        {/* <FeatureSlides /> */}
         
         {/* How We Do It */}
         <motion.div
@@ -95,7 +96,7 @@ const Index = () => {
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInUp}
         >
-          <HowWeDoIt />
+          <Howtodo />
         </motion.div>
         
         {/* Testimonials */}

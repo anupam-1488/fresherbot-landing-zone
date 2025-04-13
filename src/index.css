@@ -170,3 +170,37 @@
 .feature-slide.active {
   z-index: 10;
 }
+
+.bg-gradient {
+  background: linear-gradient(135deg, #f3f4ff 0%, #ffffff 100%);
+}
+
+.title-font {
+  font-family: 'Playfair Display', serif;
+}
+
+.step-content {
+  transition: all 0.3s ease;
+}
+
+.step-content.hidden {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.step-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.blue-circle {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: #2563eb;
+  opacity: 0.1;
+  z-index: 0;
+  left: -200px;
+  top: -100px;
+}

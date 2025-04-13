@@ -93,7 +93,7 @@ const FeatureSlides = () => {
   return (
     <div className="relative w-full" ref={slidesRef}>
       {/* Intro Section */}
-      <div className="h-screen w-full flex items-center justify-center snap-start snap-always bg-[#121339] text-white p-4">
+      <div className="h-screen w-full flex items-center justify-center snap-start snap-always bg-burgundy-900 text-white p-4">
         <div className="max-w-4xl text-center">
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}

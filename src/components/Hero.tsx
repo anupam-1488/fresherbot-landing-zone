@@ -83,7 +83,7 @@ const Hero = () => {
             alt="FresherBot Career Dashboard" 
             className="w-full h-full object-cover brightness-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#121339]/95 to-[#121339]/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#800020]/50 to-[#121339]/0"></div>
         </div>
         
         {/* Content Overlay */}
@@ -98,9 +98,9 @@ const Hero = () => {
                   initial="hidden"
                   animate={isVisible ? "visible" : "hidden"}
                   variants={fadeUp}
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white font-['Montserrat',sans-serif]"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-white font-['Montserrat',sans-serif]"
                 >
-                  FresherBot is the <span className="text-[#8F76FF]">smarter</span> career management platform
+                 Building Your Career..?  We have got this <span className="text-[#8F76FF]">Together</span>
                 </motion.h1>
 
                 {/* Subheading */}
@@ -111,8 +111,8 @@ const Hero = () => {
                   variants={fadeUp}
                   className="text-lg mb-6 text-white/90 font-['Montserrat',sans-serif] max-w-lg"
                 >
-                  that keeps your 
-                  <span className="text-[#8F76FF] font-medium"> career goals on track</span>, your 
+                  Career Paths Taillored 
+                  <span className="text-[#8F76FF] font-medium"> For Freshers</span>, your 
                   <span className="text-[#8F76FF] font-medium"> resourcing in check</span>, and your 
                   <span className="text-[#8F76FF] font-medium"> profits on point</span>. Finally, a 
                   management tool that actually manages.
@@ -170,7 +170,7 @@ const Hero = () => {
               className="w-full lg:w-1/2 h-full relative hidden lg:block"
             >
               {/* Manage Projects Button */}
-              <motion.div 
+              {/* <motion.div 
                 className="absolute top-1/3 right-8"
                 animate={{ 
                   y: [0, -5, 0],
@@ -186,14 +186,14 @@ const Hero = () => {
                 >
                   Manage Projects
                 </Button>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </div>
         </div>
       </div>
       
       {/* Stats Section with Dark Background */}
-      <div className="bg-[#121339] w-full py-16">
+      <div className="bg-burgundy-800 w-full py-16">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
