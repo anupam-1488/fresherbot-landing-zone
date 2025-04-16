@@ -1,4 +1,3 @@
-
 import {
   Carousel,
   CarouselContent,
@@ -16,38 +15,38 @@ const testimonials = [
     author: "NTR",
     position: "Software Developer",
     company: "TechCorp",
-    stars: 5
+    stars: 5,
   },
   {
     quote: "The training programs are comprehensive and aligned perfectly with industry requirements.",
     author: "Rahul Kumar",
     position: "Data Analyst",
     company: "Analytics Inc.",
-    stars: 5
+    stars: 5,
   },
   {
     quote: "As an employer, finding qualified freshers has never been easier. The platform provides great talent.",
     author: "RAM CHARAN",
     position: "HR Manager",
     company: "InnovateTech",
-    stars: 5
+    stars: 5,
   },
   {
     quote: "Our college's placement rates improved by 40% after partnering with FresherBot.",
     author: "Dr. SANDEEP REDDY VANGA",
     position: "Placement Director",
     company: "Engineering College",
-    stars: 5
-  }
+    stars: 5,
+  },
 ];
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-gray-50">
-      <div className="section-container">
+    <section className="py-24 bg-gradient-to-b from-[#fff0f3] via-[#fdf4f5] to-white">
+      <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16">
-          <motion.span 
-            className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r from-fresherbot-success/10 to-fresherbot-success/20 text-fresherbot-success mb-4"
+          <motion.span
+            className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-rose-100 text-rose-600 mb-4"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -55,16 +54,18 @@ export function Testimonials() {
           >
             Testimonials
           </motion.span>
-          <motion.h2 
-            className="text-4xl font-bold mb-4"
+          <motion.h2
+            className="text-4xl font-bold mb-4 text-gray-900"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <span className="heading-gradient">What People Say</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+              What People Say
+            </span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-gray-600 max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -89,18 +90,23 @@ export function Testimonials() {
                     <div className="p-8 flex flex-col h-full">
                       <div className="mb-4">
                         {[...Array(testimonial.stars)].map((_, i) => (
-                          <Star key={i} className="inline-block h-5 w-5 text-fresherbot-warning fill-fresherbot-warning mr-1" />
+                          <Star
+                            key={i}
+                            className="inline-block h-5 w-5 text-yellow-500 fill-yellow-400 mr-1"
+                          />
                         ))}
                       </div>
-                      <Quote className="h-10 w-10 text-fresherbot-primary/20 mb-4" />
-                      <p className="text-lg flex-grow mb-6">"{testimonial.quote}"</p>
+                      <Quote className="h-10 w-10 text-rose-300 mb-4" />
+                      <p className="text-lg text-gray-800 flex-grow mb-6">"{testimonial.quote}"</p>
                       <div className="flex items-center mt-auto">
-                        <div className="w-12 h-12 bg-fresherbot-primary/10 rounded-full flex items-center justify-center text-xl font-bold text-fresherbot-primary mr-3">
+                        <div className="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center text-xl font-bold text-rose-600 mr-3">
                           {testimonial.author.charAt(0)}
                         </div>
                         <div>
-                          <p className="font-semibold">{testimonial.author}</p>
-                          <p className="text-sm text-gray-600">{testimonial.position}, {testimonial.company}</p>
+                          <p className="font-semibold text-gray-900">{testimonial.author}</p>
+                          <p className="text-sm text-gray-600">
+                            {testimonial.position}, {testimonial.company}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -109,9 +115,10 @@ export function Testimonials() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex justify-center mt-8 gap-2">
-            <CarouselPrevious className="relative inset-0 translate-y-0 bg-gradient-to-r from-fresherbot-primary to-fresherbot-secondary text-white hover:opacity-90" />
-            <CarouselNext className="relative inset-0 translate-y-0 bg-gradient-to-r from-fresherbot-primary to-fresherbot-secondary text-white hover:opacity-90" />
+
+          <div className="flex justify-center mt-8 gap-4">
+            <CarouselPrevious className="bg-gradient-to-r from-rose-500 to-pink-500 text-white hover:opacity-90 px-4 py-2 rounded-lg shadow-md" />
+            <CarouselNext className="bg-gradient-to-r from-rose-500 to-pink-500 text-white hover:opacity-90 px-4 py-2 rounded-lg shadow-md" />
           </div>
         </Carousel>
       </div>

@@ -1,12 +1,12 @@
 
 import React from "react";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Briefcase, Code, Building, ChartBar, ArrowRight, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import Navbar from "@/components/Navbar";
 
 const Employer = () => {
   const employerOptions = [

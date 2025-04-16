@@ -1,12 +1,12 @@
 
 import React from "react";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { BookOpen, GraduationCap, Users, Trophy } from "lucide-react";
 import { motion } from "framer-motion";
+import Navbar from "@/components/Navbar";
 
 const College = () => {
   const collegeOptions = [

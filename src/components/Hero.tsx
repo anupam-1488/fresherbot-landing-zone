@@ -78,13 +78,16 @@ const Hero = () => {
       <div className="h-screen w-full relative">
         {/* Background Image - Full Screen */}
         <div className="absolute inset-0 w-full h-full">
-          <img 
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80" 
-            alt="FresherBot Career Dashboard" 
-            className="w-full h-full object-cover brightness-50"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#800020]/50 to-[#121339]/0"></div>
-        </div>
+        <img 
+    src="public/Images/hero_wallpaper.avif" 
+    alt="FresherBot Career Dashboard" 
+    className="w-full h-full object-cover brightness-100"
+  />
+      <div className="absolute inset-0 z-10 bg-[linear-gradient(to_right,_#2e2e2e_20%,_transparent_80%)]" />
+    <div className="absolute inset-0 z-10 bg-[linear-gradient(to_top,_#5f1b30_1%,_transparent_30%)]" />
+
+<div className="absolute bottom-0 left-0 w-full h-[20vh] bg-gradient-to-t from-[#5f1b30]/100 to-transparent"></div>
+</div>
         
         {/* Content Overlay */}
         <div className="relative h-full w-full flex items-center">
@@ -193,8 +196,12 @@ const Hero = () => {
       </div>
       
       {/* Stats Section with Dark Background */}
-      <div className="bg-burgundy-800 w-full py-16">
-        <div className="container mx-auto px-4">
+      <div className="relative bg-burgundy-800 w-full py-16">
+  {/* Blurred top border */}
+  <div className="absolute top-0 left-0 w-full h-[40px] bg-gradient-to-b from-[#5f1b30] to-[#7a243d]/0 backdrop-blur-md pointer-events-none" />
+  
+  {/* Content goes here */}
+      <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
